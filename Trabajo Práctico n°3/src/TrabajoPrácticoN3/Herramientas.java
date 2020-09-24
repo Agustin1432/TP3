@@ -5,7 +5,7 @@ public class Herramientas extends Articulo{
 	
 	public Herramientas(String nombre, double precio) {
 		super(nombre, precio);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	private String descripcion;

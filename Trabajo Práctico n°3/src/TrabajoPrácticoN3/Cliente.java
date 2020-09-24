@@ -40,6 +40,15 @@ public class Cliente {
 
 	
 	
+	public Cliente(String nombre, String apellido, String dni, String direccion, String telefono) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.direccion = direccion;
+		this.telefono = telefono;
+	}
+	
 	public String toString() {
 		return "Cliente [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", direccion=" + direccion
 				+ ", telefono=" + telefono + "]";

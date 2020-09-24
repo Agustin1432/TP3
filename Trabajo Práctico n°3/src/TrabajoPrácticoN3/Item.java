@@ -2,7 +2,7 @@ package TrabajoPrácticoN3;
 import java.util.*;
 
 public class Item {
-	private HashSet <Articulo> articulo;
+	private LinkedHashSet <Articulo> articulo;
 	private int cantidad;
 	
 	
@@ -10,7 +10,7 @@ public class Item {
 		return articulo;
 	}
 	public void setArticulo(HashSet<Articulo> articulo) {
-		this.articulo = articulo;
+		this.articulo = (LinkedHashSet<Articulo>) articulo;
 	}
 	public int getCantidad() {
 		return cantidad;
@@ -26,7 +26,7 @@ public class Item {
 	
 	public Item(HashSet<Articulo> articulo, int cantidad) {
 		super();
-		this.articulo = articulo;
+		this.articulo = (LinkedHashSet<Articulo>) articulo;
 		this.cantidad = cantidad;
 	}
 	
