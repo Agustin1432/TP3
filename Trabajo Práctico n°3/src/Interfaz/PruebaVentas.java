@@ -1,6 +1,6 @@
 package Interfaz;
 
-public class Programa {
+public class PruebaVentas {
 
 	public static void main(String[] args) {
 		VentanaVentas v1 = new VentanaVentas();

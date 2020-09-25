@@ -2,11 +2,9 @@ package Controlador;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import TrabajoPrácticoN3.Articulo;
-import TrabajoPrácticoN3.Cliente;
-import TrabajoPrácticoN3.Factura;
+import TrabajoPrácticoN3.*;
 
-public class Constructor {
+public class Controlador {
 	private LinkedHashSet <TrabajoPrácticoN3.Cliente> cliente;
 	private LinkedHashSet <TrabajoPrácticoN3.Factura> factura;
 	private LinkedHashSet <TrabajoPrácticoN3.Herramientas> herramienta;
@@ -77,22 +75,44 @@ public class Constructor {
 		}
 	}
 	
-	public TrabajoPrácticoN3.Articulo buscarArticulo(String nombre) {
+	public TrabajoPrácticoN3.Herramientas buscarHerramienta(String nombre) {
 		int z=0;
-		TrabajoPrácticoN3.Articulo buscar = null ;
-		Iterator <Articulo> iterador = this.articulo.iterator();
+		TrabajoPrácticoN3.Herramientas buscar = null ;
+		Iterator <Herramientas> iterador = this.herramienta.iterator();
 		while(iterador.hasNext() && z==0) {
-			if(iterador.next().==dni) {
-				buscar=new TrabajoPrácticoN3.Cliente(iterador.next().getNombre(),iterador.next().getApellido(),iterador.next().getDni(),iterador.next().getDireccion(),iterador.next().getTelefono());
+			if(nombre.equals(iterador.next().getNombre())) {
+				buscar=new TrabajoPrácticoN3.Herramientas(iterador.next().getNombre(), iterador.next().getPrecio());
 				z=1;
 			}
 		}
 		return buscar;	
 	}
 	
+	public TrabajoPrácticoN3.Industrial buscarIndustrial(String nombre) {
+		int z=0;
+		TrabajoPrácticoN3.Industrial buscar = null ;
+		Iterator <Industrial> iterador = this.industrial.iterator();
+		while(iterador.hasNext() && z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				buscar=new TrabajoPrácticoN3.Industrial(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getPotenciaMaxima(),iterador.next().getTemperatiraMinima(),iterador.next().getTemperaturaMaxima());
+				z=1;
+			}
+		}
+		return buscar;	
+	}
 	
-	
-	
+	public TrabajoPrácticoN3.Domiciliaria buscarDomiciliaria(String nombre) {
+		int z=0;
+		TrabajoPrácticoN3.Domiciliaria buscar = null ;
+		Iterator <Domiciliaria> iterador = this.domiciliaria.iterator();
+		while(iterador.hasNext() && z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				buscar=new TrabajoPrácticoN3.Domiciliaria(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getPotenciaMaxima());
+				z=1;
+			}
+		}
+		return buscar;	
+	}
 	
 	
 	
