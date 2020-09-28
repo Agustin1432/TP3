@@ -24,7 +24,6 @@ public class VentanaPrincipal extends JFrame {
 		lblBienvenido = new JLabel("BIENVENIDO");
 		lblBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenido.setFont(new Font("Tempus Sans ITC", Font.PLAIN, 95));
-		lblBienvenido.setIcon(null);
 		panel.add(lblBienvenido, BorderLayout.CENTER);
 		
 		JMenuBar menuBar = new JMenuBar();

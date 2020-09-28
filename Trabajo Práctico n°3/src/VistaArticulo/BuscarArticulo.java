@@ -1,5 +1,11 @@
 package VistaArticulo;
 
-public class BuscarArticulo {
-	setSize(700,700);
+import javax.swing.*;
+
+public class BuscarArticulo extends JFrame {
+	public BuscarArticulo() {
+		setSize(700,700);
+		
+	}
+	 
 }
