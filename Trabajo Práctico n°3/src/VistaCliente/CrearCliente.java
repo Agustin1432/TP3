@@ -5,6 +5,9 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import Controlador.*;
+import Interfaz.VentanaPrincipal;
+import TrabajoPrácticoN3.*;
 
 public class CrearCliente extends JFrame{
 	private JTextField textField;
@@ -12,9 +15,13 @@ public class CrearCliente extends JFrame{
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	JPanel panel;
+	Controlador control;
 	
+
 	public CrearCliente() {
 		setSize(700,700);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
@@ -60,7 +67,7 @@ public class CrearCliente extends JFrame{
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Crear");
 		mnNewMenu_2.add(mntmNewMenuItem_8);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
@@ -73,7 +80,7 @@ public class CrearCliente extends JFrame{
 		lblNewLabel.setBounds(185, 255, 46, 14);
 		panel_1.add(lblNewLabel);
 		
-		textField = new JTextField();
+		textField = new JTextField("");
 		textField.setBounds(241, 252, 188, 20);
 		panel_1.add(textField);
 		textField.setColumns(10);
@@ -115,14 +122,41 @@ public class CrearCliente extends JFrame{
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton = new JButton("AGREGAR");
-		btnNewButton.setEnabled(false);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
+					TrabajoPrácticoN3.Cliente crear= new TrabajoPrácticoN3.Cliente(textField.getText(), textField_1.getText(), textField_2.getText(),textField_3.getText(), textField_4.getText());
+					control.crearCliente(crear);
+				}else {
+					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar todos los campos");
+				}
+			}
+		});
+		btnNewButton.setEnabled(true);
 		btnNewButton.setBounds(76, 511, 100, 40);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("VOLVER");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton_1) {
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal();
+					ventanaprincipal.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		btnNewButton_1.setBounds(504, 511, 100, 40);
 		panel.add(btnNewButton_1);
+			
 		
-		
+	}
+	
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
 }

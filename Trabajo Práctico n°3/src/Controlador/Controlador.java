@@ -12,7 +12,7 @@ public class Controlador {
 	private LinkedHashSet <TrabajoPrácticoN3.Domiciliaria> domiciliaria;
 	
 	
-	
+	//GETTERS AND SETTERS
 	public LinkedHashSet<TrabajoPrácticoN3.Cliente> getCliente() {
 		return cliente;
 	}
@@ -26,7 +26,7 @@ public class Controlador {
 		this.factura = factura;
 	}
 	
-	
+	//METODOS DE CLIENTE
 	public void crearCliente (TrabajoPrácticoN3.Cliente cliente) {
 		this.cliente.add(cliente);
 	}
@@ -42,13 +42,14 @@ public class Controlador {
 		}
 		return buscar;	
 	}
-	//FALTA HACER EDITAR CLIENTE
-	public void editarCliente (String dni) {
-		
+	public void editarCliente (String dni,TrabajoPrácticoN3.Cliente cliente) {
+		int z=0;
 		Iterator <Cliente> iterador = this.cliente.iterator();
-		while(iterador.hasNext()) {
-			if(iterador.next().getDni()==dni) {
-				
+		while(iterador.hasNext()&& z==0) {
+			if(dni.equals(iterador.next().getDni())) {
+				iterador.remove();
+				this.cliente.add(cliente);
+				z=1;
 			}
 		}	
 	}
@@ -62,32 +63,32 @@ public class Controlador {
 		}
 
 	
-	public void crearArticulo (TrabajoPrácticoN3.Herramientas herramienta,TrabajoPrácticoN3.Industrial industrial,TrabajoPrácticoN3.Domiciliaria domiciliaria) {
-		if(herramienta==null) {
+	//METODOS DE ARTICULO
+	public void crearherramienta (TrabajoPrácticoN3.Herramientas herramienta) {
 			this.herramienta.add(herramienta);
-		}else{
-			if(industrial==null) {
-				this.industrial.add(industrial);
-			}
-			else{
-				this.domiciliaria.add(domiciliaria);
-			}
-		}
+		
 	}
+	public void crearIndustrial (TrabajoPrácticoN3.Industrial industrial) {
+		this.industrial.add(industrial);
 	
+	}
+	public void crearDomiciliaria (TrabajoPrácticoN3.Domiciliaria domiciliaria) {
+		this.domiciliaria.add(domiciliaria);
+	
+	}
+	//BUSCAR ARTICULO
 	public TrabajoPrácticoN3.Herramientas buscarHerramienta(String nombre) {
 		int z=0;
 		TrabajoPrácticoN3.Herramientas buscar = null ;
 		Iterator <Herramientas> iterador = this.herramienta.iterator();
 		while(iterador.hasNext() && z==0) {
 			if(nombre.equals(iterador.next().getNombre())) {
-				buscar=new TrabajoPrácticoN3.Herramientas(iterador.next().getNombre(), iterador.next().getPrecio());
+				buscar=new TrabajoPrácticoN3.Herramientas(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getDescripcion());
 				z=1;
 			}
 		}
 		return buscar;	
 	}
-	
 	public TrabajoPrácticoN3.Industrial buscarIndustrial(String nombre) {
 		int z=0;
 		TrabajoPrácticoN3.Industrial buscar = null ;
@@ -100,7 +101,6 @@ public class Controlador {
 		}
 		return buscar;	
 	}
-	
 	public TrabajoPrácticoN3.Domiciliaria buscarDomiciliaria(String nombre) {
 		int z=0;
 		TrabajoPrácticoN3.Domiciliaria buscar = null ;
@@ -113,7 +113,70 @@ public class Controlador {
 		}
 		return buscar;	
 	}
-	
-	
+	//EDITAR ARTICULO
+	public void editarHerramienta (String nombre,TrabajoPrácticoN3.Herramientas herramienta) {
+		int z=0;
+		Iterator <Herramientas> iterador = this.herramienta.iterator();
+		while(iterador.hasNext()&& z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				iterador.remove();
+				this.herramienta.add(herramienta);
+				z=1;
+			}
+		}	
+	}
+	public void editarIndustrial (String nombre,TrabajoPrácticoN3.Industrial industrial) {
+		int z=0;
+		Iterator <Industrial> iterador = this.industrial.iterator();
+		while(iterador.hasNext()&& z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				iterador.remove();
+				this.industrial.add(industrial);
+				z=1;
+			}
+		}	
+	}
+	public void editarDomiciliaria (String nombre,TrabajoPrácticoN3.Domiciliaria domiciliaria) {
+		int z=0;
+		Iterator <Domiciliaria> iterador = this.domiciliaria.iterator();
+		while(iterador.hasNext()&& z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				iterador.remove();
+				this.domiciliaria.add(domiciliaria);
+				z=1;
+			}
+		}	
+	}
+	//ELIMINAR ARTICULO
+	public void eliminarHerramienta (String nombre) {
+		int z=0;
+		Iterator <Herramientas> iterador = this.herramienta.iterator();
+		while(iterador.hasNext()&& z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				iterador.remove();
+				z=1;
+			}
+		}	
+	}
+	public void eliminarIndustrial (String nombre) {
+		int z=0;
+		Iterator <Industrial> iterador = this.industrial.iterator();
+		while(iterador.hasNext()&& z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				iterador.remove();
+				z=1;
+			}
+		}	
+	}
+	public void eliminarDomiciliaria (String nombre) {
+		int z=0;
+		Iterator <Domiciliaria> iterador = this.domiciliaria.iterator();
+		while(iterador.hasNext()&& z==0) {
+			if(nombre.equals(iterador.next().getNombre())) {
+				iterador.remove();
+				z=1;
+			}
+		}	
+	}
 	
 }

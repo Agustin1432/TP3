@@ -3,13 +3,13 @@ package VistaCliente;
 import java.awt.BorderLayout;
 
 import javax.swing.*;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
-import java.awt.CardLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
+import java.awt.*;
+import com.jgoodies.forms.layout.*;
 import net.miginfocom.swing.MigLayout;
+import java.awt.event.*;
+import Controlador.*;
+import Interfaz.VentanaPrincipal;
+import TrabajoPrácticoN3.*;
 
 public class BuscarCliente extends JFrame{
 	private JTextField textField;
@@ -18,9 +18,12 @@ public class BuscarCliente extends JFrame{
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private Controlador contro;
+	
 	
 	public BuscarCliente() {
 		setSize(700,700);
+		setLocationRelativeTo(null);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -76,56 +79,51 @@ public class BuscarCliente extends JFrame{
 		panel_2.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
-		lblNewLabel.setEnabled(false);
 		lblNewLabel.setBounds(10, 222, 46, 14);
 		panel_2.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setEnabled(false);
 		textField.setBounds(66, 219, 185, 20);
+		textField.setEditable(false);
 		panel_2.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Apellido:");
-		lblNewLabel_1.setEnabled(false);
 		lblNewLabel_1.setBounds(10, 269, 46, 14);
 		panel_2.add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
-		textField_1.setEnabled(false);
+		textField_1.setEditable(false);
 		textField_1.setBounds(66, 266, 185, 20);
 		panel_2.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("DNI");
-		lblNewLabel_2.setEnabled(false);
 		lblNewLabel_2.setBounds(10, 341, 46, 14);
 		panel_2.add(lblNewLabel_2);
 		
 		textField_2 = new JTextField();
-		textField_2.setEnabled(false);
+		textField_2.setEditable(false);
 		textField_2.setBounds(66, 338, 185, 20);
 		panel_2.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Tel\u00E9fono:");
-		lblNewLabel_4.setEnabled(false);
 		lblNewLabel_4.setBounds(10, 391, 46, 14);
 		panel_2.add(lblNewLabel_4);
 		
 		textField_3 = new JTextField();
-		textField_3.setEnabled(false);
+		textField_3.setEditable(false);
 		textField_3.setBounds(66, 363, 185, 20);
 		panel_2.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Direcci\u00F3n:");
-		lblNewLabel_3.setEnabled(false);
 		lblNewLabel_3.setBounds(10, 366, 50, 14);
 		panel_2.add(lblNewLabel_3);
 		
 		textField_4 = new JTextField();
-		textField_4.setEnabled(false);
+		textField_4.setEditable(false);
 		textField_4.setBounds(66, 388, 185, 20);
 		panel_2.add(textField_4);
 		textField_4.setColumns(10);
@@ -140,9 +138,38 @@ public class BuscarCliente extends JFrame{
 		textField_5.setColumns(10);
 		
 		JButton btnNewButton = new JButton("BUSCAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnNewButton) {
+					if(textField_5.getText().equals("")) {
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
+					}else{
+					TrabajoPrácticoN3.Cliente cliente;
+					cliente=contro.buscarCliente(textField_5.getText());
+					textField.setText(cliente.getNombre());
+					textField_1.setText(cliente.getApellido());
+					textField_2.setText(cliente.getDni());
+					textField_3.setText(cliente.getDireccion());
+					textField_4.setText(cliente.getTelefono());
+					}
+				}
+			}
+		});
 		btnNewButton.setBounds(430, 135, 89, 23);
 		panel_1.add(btnNewButton);
 		
+		JButton btnNewButton_2 = new JButton("VOLVER");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton_2) {
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal();
+					ventanaprincipal.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		btnNewButton_2.setBounds(283, 556, 100, 40);
+		panel.add(btnNewButton_2);
 		
 		
 		

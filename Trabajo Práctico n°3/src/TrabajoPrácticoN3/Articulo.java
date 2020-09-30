@@ -7,11 +7,7 @@ public abstract class Articulo {
 	public Articulo(String nombre2, double precio2) {
 		
 	}
-
-
-	public abstract String descripcion();
 	
-
 	public String getNombre() {
 		return nombre;
 	}

@@ -30,12 +30,4 @@ public class Industrial extends Electricidad{
 		this.temperatiraMinima = temperatiraMinima;
 		this.temperaturaMaxima = temperaturaMaxima;
 	}
-	@Override
-	public String descripcion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	
 }

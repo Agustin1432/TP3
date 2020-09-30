@@ -1,15 +1,16 @@
 package TrabajoPrácticoN3;
 
 public class Herramientas extends Articulo{
-	
-	
-	public Herramientas(String nombre, double precio) {
-		super(nombre, precio);
-		
-	}
-
 	private String descripcion;
 
+	
+	public Herramientas(String nombre2, double precio2, String descripcion) {
+		super(nombre2, precio2);
+		this.descripcion = descripcion;
+	}
+
+
+	
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -23,11 +24,6 @@ public class Herramientas extends Articulo{
 		return "Herramientas [descripcion=" + descripcion + "]";
 	}
 
-	@Override
-	public String descripcion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	
 }

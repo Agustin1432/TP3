@@ -17,6 +17,9 @@ import java.awt.Insets;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+import Controlador.*;
+import Interfaz.VentanaPrincipal;
+import TrabajoPrácticoN3.*;
 import net.miginfocom.swing.MigLayout;
 
 public class CrearArticulo extends JFrame{
@@ -25,9 +28,12 @@ public class CrearArticulo extends JFrame{
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	private	Controlador control;
 	
 	public CrearArticulo() {
+		
 		setSize(700,700);
+		setLocationRelativeTo(null);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -72,11 +78,11 @@ public class CrearArticulo extends JFrame{
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(98, 335, 495, 142);
+		panel_1.setBounds(98, 375, 495, 142);
 		panel.add(panel_1);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(98, 162, 495, 89);
+		panel_2.setBounds(98, 86, 495, 89);
 		panel.add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -101,7 +107,7 @@ public class CrearArticulo extends JFrame{
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("Tipo:");
-		lblNewLabel_2.setBounds(98, 279, 46, 14);
+		lblNewLabel_2.setBounds(98, 197, 46, 14);
 		panel.add(lblNewLabel_2);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -138,51 +144,135 @@ public class CrearArticulo extends JFrame{
 		panel_1.add(textField_4);
 		textField_4.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("AGREGAR");
-		btnNewButton_1.setEnabled(false);
-		btnNewButton_1.setBounds(98, 538, 100, 40);
-		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("VOLVER");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton_2) {
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal();
+					ventanaprincipal.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		btnNewButton_2.setBounds(494, 538, 100, 40);
 		panel.add(btnNewButton_2);
 		
+		JLabel lblNewLabel_6 = new JLabel("Descripcion de la Herramienta:");
+		lblNewLabel_6.setEnabled(false);
+		lblNewLabel_6.setBounds(98, 222, 203, 14);
+		panel.add(lblNewLabel_6);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEnabled(false);
+		textArea.setBounds(98, 239, 495, 125);
+		panel.add(textArea);
+		
 		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if("Domiciliaria".equals(comboBox.getSelectedItem())) {
+					lblNewLabel_3.setEnabled(true);
+					textField_2.setEnabled(true);
+					textField_3.setEnabled(false);
+					textField_4.setEnabled(false);
+					lblNewLabel_4.setEnabled(false);
+					lblNewLabel_5.setEnabled(false);
+					lblNewLabel_6.setEnabled(false);
+					textArea.setEnabled(false);
+				}else {
+					lblNewLabel_3.setEnabled(true);
+					lblNewLabel_4.setEnabled(true);
+					lblNewLabel_5.setEnabled(true);
+					textField_2.setEnabled(true);
+					textField_3.setEnabled(true);
+					textField_4.setEnabled(true);
+					lblNewLabel_6.setEnabled(false);
+					textArea.setEnabled(false);
+				}
+			}
+		});
 		comboBox.setEnabled(false);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Domiciliaria", "Industrial"}));
-		comboBox.setBounds(362, 275, 89, 22);
+		comboBox.setBounds(380, 193, 89, 22);
 		panel.add(comboBox);
 		
 		JRadioButton rdbtnElectricidad = new JRadioButton("Electricidad");
-		rdbtnElectricidad.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
+		rdbtnElectricidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				comboBox.setEnabled(true);
+				textArea.setEnabled(false);
+				lblNewLabel_6.setEnabled(false);
 			}
 		});
-		
-		rdbtnElectricidad.setBounds(270, 275, 86, 23);
+		rdbtnElectricidad.setBounds(270, 193, 100, 23);
 		panel.add(rdbtnElectricidad);
 		
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Herramienta");
 		rdbtnNewRadioButton.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				
+				lblNewLabel_6.setEnabled(true);
+				textArea.setEnabled(true);
+				comboBox.setEnabled(false);
+				lblNewLabel_3.setEnabled(false);
+				lblNewLabel_4.setEnabled(false);
+				lblNewLabel_5.setEnabled(false);
+				textField_2.setEnabled(false);
+				textField_3.setEnabled(false);
+				textField_4.setEnabled(false);
 			}
 		});
 		
 		
-		rdbtnNewRadioButton.setBounds(154, 275, 86, 23);
+		rdbtnNewRadioButton.setBounds(154, 193, 100, 23);
 		panel.add(rdbtnNewRadioButton);
 		
 		ButtonGroup grupoRadioBotones= new ButtonGroup();
 		grupoRadioBotones.add(rdbtnElectricidad);
 		grupoRadioBotones.add(rdbtnNewRadioButton);
 		
+		JButton btnNewButton_1 = new JButton("AGREGAR");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtnNewRadioButton.isSelected()==true) {
+					if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textArea.getText().equals("")) {
+						double doble = Double.parseDouble(textField_1.getText());
+						Herramientas herra= new Herramientas(textField.getText(),doble, textArea.getText());
+						control.crearherramienta(herra);
+					}else
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la descripcion");
+				}
+				if(rdbtnElectricidad.isSelected()==true) {
+					if("Domiciliaria".equals(comboBox.getSelectedItem())) {
+						if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")) {
+							double doble = Double.parseDouble(textField_1.getText());
+							double doble1 = Double.parseDouble(textField_2.getText());
+							Domiciliaria domi = new Domiciliaria(textField.getText(), doble, doble1);
+							control.crearDomiciliaria(domi);
+						}else
+							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la potencia máxima");
+					}
+					else {
+						if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
+							double doble = Double.parseDouble(textField_1.getText());
+							double doble1 = Double.parseDouble(textField_2.getText());
+							double doble2 = Double.parseDouble(textField_3.getText());
+							double doble3 = Double.parseDouble(textField_4.getText());
+							Industrial indu = new Industrial(textField_1.getText(), doble, doble1, doble2, doble3);
+							control.crearIndustrial(indu);
+						}else
+							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio, la potencia máxima, temperatura minima y la temperatura máxima");
+					}
+					
+				}
+			}
+		});
+		btnNewButton_1.setBounds(98, 538, 100, 40);
+		panel.add(btnNewButton_1);
+		
 		
 		
 		
 	}
-	
-	
 }

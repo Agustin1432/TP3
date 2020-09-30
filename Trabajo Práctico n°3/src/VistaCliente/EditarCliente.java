@@ -1,8 +1,16 @@
 package VistaCliente;
 
 import javax.swing.*;
+
+import TrabajoPrácticoN3.Cliente;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import Controlador.*;
+import Interfaz.VentanaPrincipal;
+import TrabajoPrácticoN3.*;
 
 public class EditarCliente extends JFrame {
 	private JTextField textField;
@@ -11,8 +19,11 @@ public class EditarCliente extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private Controlador control;
+	private Cliente editar;
 	public EditarCliente() {
 		setSize(700,700);
+		setLocationRelativeTo(null);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -62,31 +73,8 @@ public class EditarCliente extends JFrame {
 		panel_1.setLayout(new GridLayout(5, 7, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
-		lblNewLabel.setEnabled(false);
 		lblNewLabel.setBounds(10, 72, 46, 14);
 		panel_1.add(lblNewLabel);
-		
-		textField_1 = new JTextField();
-		textField_1.setEnabled(false);
-		textField_1.setBounds(66, 94, 185, 20);
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("Apellido:");
-		lblNewLabel_1.setEnabled(false);
-		lblNewLabel_1.setBounds(10, 97, 46, 14);
-		panel_1.add(lblNewLabel_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setEnabled(false);
-		textField_2.setBounds(66, 119, 185, 20);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblNewLabel_2 = new JLabel("DNI");
-		lblNewLabel_2.setEnabled(false);
-		lblNewLabel_2.setBounds(10, 122, 46, 14);
-		panel_1.add(lblNewLabel_2);
 		
 		textField = new JTextField();
 		textField.setEnabled(false);
@@ -94,8 +82,27 @@ public class EditarCliente extends JFrame {
 		panel_1.add(textField);
 		textField.setColumns(10);
 		
+		JLabel lblNewLabel_1 = new JLabel("Apellido:");
+		lblNewLabel_1.setBounds(10, 97, 46, 14);
+		panel_1.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setEnabled(false);
+		textField_1.setBounds(66, 94, 185, 20);
+		panel_1.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("DNI");
+		lblNewLabel_2.setBounds(10, 122, 46, 14);
+		panel_1.add(lblNewLabel_2);
+		
+		textField_2 = new JTextField();
+		textField_2.setEnabled(false);
+		textField_2.setBounds(66, 119, 185, 20);
+		panel_1.add(textField_2);
+		textField_2.setColumns(10);
+		
 		JLabel lblNewLabel_3 = new JLabel("Direcci\u00F3n:");
-		lblNewLabel_3.setEnabled(false);
 		lblNewLabel_3.setBounds(10, 147, 50, 14);
 		panel_1.add(lblNewLabel_3);
 		
@@ -106,7 +113,6 @@ public class EditarCliente extends JFrame {
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Tel\u00E9fono:");
-		lblNewLabel_4.setEnabled(false);
 		lblNewLabel_4.setBounds(10, 172, 46, 14);
 		panel_1.add(lblNewLabel_4);
 		
@@ -117,6 +123,20 @@ public class EditarCliente extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton = new JButton("BUSCAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(textField_5.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
+				}else{
+					editar=control.buscarCliente(textField_5.getText());
+					textField.setText(editar.getNombre());
+					textField_1.setText(editar.getApellido());
+					textField_2.setText(editar.getDni());
+					textField_3.setText(editar.getDireccion());
+					textField_4.setText(editar.getTelefono());
+				}
+			}
+		});
 		btnNewButton.setBounds(441, 150, 89, 23);
 		panel.add(btnNewButton);
 		
@@ -126,15 +146,33 @@ public class EditarCliente extends JFrame {
 		textField_5.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("INGRESE EL DNI:");
-		lblNewLabel_5.setBounds(148, 154, 100, 14);
+		lblNewLabel_5.setBounds(136, 154, 100, 14);
 		panel.add(lblNewLabel_5);
 		
 		JButton btnNewButton_1 = new JButton("EDITAR");
-		btnNewButton_1.setEnabled(false);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
+					editar= new Cliente(textField.getText(), textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText());
+					control.editarCliente(textField_5.getText(),editar);;
+				}else {
+					JOptionPane.showMessageDialog(null,"Primero necesita buscar");
+				}
+			}
+		});
 		btnNewButton_1.setBounds(98, 538, 100, 40);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("VOLVER");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton_2) {
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal();
+					ventanaprincipal.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		btnNewButton_2.setBounds(494, 538, 100, 40);
 		panel.add(btnNewButton_2);
 		
