@@ -24,7 +24,8 @@ public class EliminarCliente extends JFrame{
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private Controlador control;
-	public EliminarCliente() {
+	public EliminarCliente(Controlador control2) {
+		control=control2;
 		setSize(700,700);
 		setLocationRelativeTo(null);
 		JMenuBar menuBar = new JMenuBar();
@@ -37,7 +38,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem) {
-					CrearCliente crearc= new CrearCliente();
+					CrearCliente crearc= new CrearCliente(control);
 					crearc.setVisible(true);
 					setVisible(false);
 				}
@@ -49,7 +50,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_2) {
-					BuscarCliente buscarc= new BuscarCliente();
+					BuscarCliente buscarc= new BuscarCliente(control);
 					buscarc.setVisible(true);
 					setVisible(false);
 				}
@@ -61,7 +62,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_3) {
-					EditarCliente editarc= new EditarCliente();
+					EditarCliente editarc= new EditarCliente(control);
 					editarc.setVisible(true);
 					setVisible(false);
 				}
@@ -73,7 +74,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_1) {
-					EliminarCliente eliminarc= new EliminarCliente();
+					EliminarCliente eliminarc= new EliminarCliente(control);
 					eliminarc.setVisible(true);
 					setVisible(false);
 				}
@@ -88,7 +89,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_4) {
-					CrearArticulo crearc= new CrearArticulo();
+					CrearArticulo crearc= new CrearArticulo(control);
 					crearc.setVisible(true);
 					setVisible(false);
 				}
@@ -100,7 +101,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_5) {
-					BuscarArticulo buscara= new BuscarArticulo();
+					BuscarArticulo buscara= new BuscarArticulo(control);
 					buscara.setVisible(true);
 					setVisible(false);
 				}
@@ -112,7 +113,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_7) {
-					EditarArticulo editara= new EditarArticulo();
+					EditarArticulo editara= new EditarArticulo(control);
 					editara.setVisible(true);
 					setVisible(false);
 				}
@@ -124,7 +125,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_6) {
-					EliminarArticulo elimia= new EliminarArticulo();
+					EliminarArticulo elimia= new EliminarArticulo(control);
 					elimia.setVisible(true);
 					setVisible(false);
 				}
@@ -139,7 +140,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_8) {
-					CrearFactura crearf= new CrearFactura();
+					CrearFactura crearf= new CrearFactura(control);
 					crearf.setVisible(true);
 					setVisible(false);
 				}
@@ -151,7 +152,7 @@ public class EliminarCliente extends JFrame{
 		mntmNewMenuItem_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource()==mntmNewMenuItem_9) {
-					ListaFactura listaf= new ListaFactura();
+					ListaFactura listaf= new ListaFactura(control);
 					listaf.setVisible(true);
 					setVisible(false);
 				}
@@ -263,7 +264,7 @@ public class EliminarCliente extends JFrame{
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource()==btnNewButton_2) {
-					VentanaPrincipal ventanaprincipal= new VentanaPrincipal();
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal(control);
 					ventanaprincipal.setVisible(true);
 					setVisible(false);
 				}

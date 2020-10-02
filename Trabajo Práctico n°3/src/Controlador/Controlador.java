@@ -18,7 +18,15 @@ public class Controlador {
 	private LinkedHashSet <TrabajoPrácticoN3.Herramientas> herramienta;
 	private LinkedHashSet <TrabajoPrácticoN3.Industrial> industrial;
 	private LinkedHashSet <TrabajoPrácticoN3.Domiciliaria> domiciliaria;
-	
+	DefaultListModel <String> nombreArticulos;
+	public Controlador(){
+		cliente = new LinkedHashSet<Cliente>();
+		factura = new LinkedHashSet<Factura>();
+		herramienta = new LinkedHashSet<Herramientas>();
+		industrial = new LinkedHashSet<Industrial>();
+		domiciliaria = new LinkedHashSet<Domiciliaria>();
+		nombreArticulos= new DefaultListModel <String>();	
+	}
 
 	//GETTERS AND SETTERS
 	public LinkedHashSet<TrabajoPrácticoN3.Cliente> getCliente() {
@@ -58,13 +66,12 @@ public class Controlador {
 		this.cliente.add(cliente);
 	}
 	public TrabajoPrácticoN3.Cliente buscarCliente (String dni) {
-		int z=0;
+		
 		TrabajoPrácticoN3.Cliente buscar = null ;
 		Iterator <Cliente> iterador = this.cliente.iterator();
-		while(iterador.hasNext()&& z==0) {
+		while(iterador.hasNext()) {
 			if(iterador.next().getDni()==dni) {
 				buscar=new TrabajoPrácticoN3.Cliente(iterador.next().getNombre(),iterador.next().getApellido(),iterador.next().getDni(),iterador.next().getDireccion(),iterador.next().getTelefono());
-				z=1;
 			}
 		}
 		return buscar;	
