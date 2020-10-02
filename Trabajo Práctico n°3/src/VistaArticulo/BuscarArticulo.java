@@ -9,6 +9,7 @@ import VistaCliente.CrearCliente;
 import VistaCliente.EditarCliente;
 import VistaCliente.EliminarCliente;
 import VistaFactura.CrearFactura;
+import VistaFactura.ListaFactura;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -155,6 +156,18 @@ public class BuscarArticulo extends JFrame {
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
 		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("ListarFacturas");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_9) {
+					ListaFactura listaf= new ListaFactura();
+					listaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_9);
+		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
@@ -188,6 +201,7 @@ public class BuscarArticulo extends JFrame {
 		lblNewLabel_3.setVisible(false);
 		
 		JTextField textField_6 = new JTextField();
+		textField_6.setEditable(false);
 		textField_6.setBounds(249, 92, 249, 46);
 		panel_1.add(textField_6);
 		textField_6.setColumns(10);
@@ -201,6 +215,7 @@ public class BuscarArticulo extends JFrame {
 
 		
 		textField_4 = new JTextField();
+		textField_4.setEditable(false);
 		textField_4.setBounds(249, 92, 249, 46);
 		panel_1.add(textField_4);
 		textField_4.setColumns(10);
@@ -212,6 +227,7 @@ public class BuscarArticulo extends JFrame {
 		lblNewLabel_10.setVisible(false);
 		
 		JTextField textField_10 = new JTextField();
+		textField_10.setEditable(false);
 		textField_10.setBounds(249, 138, 249, 46);
 		panel_1.add(textField_10);
 		textField_10.setColumns(10);
@@ -223,6 +239,7 @@ public class BuscarArticulo extends JFrame {
 		lblTemperaturaMaxima.setVisible(false);
 		
 		textField_7 = new JTextField();
+		textField_7.setEditable(false);
 		textField_7.setBounds(249, 184, 249, 46);
 		panel_1.add(textField_7);
 		textField_7.setColumns(10);
@@ -233,6 +250,7 @@ public class BuscarArticulo extends JFrame {
 		panel_1.add(lblNombre);
 		
 		textField_2 = new JTextField();
+		textField_2.setEditable(false);
 		textField_2.setBounds(249, 0, 249, 46);
 		panel_1.add(textField_2);
 		textField_2.setColumns(10);
@@ -242,6 +260,7 @@ public class BuscarArticulo extends JFrame {
 		panel_1.add(lblNewLabel_1);
 		
 		textField_5 = new JTextField();
+		textField_5.setEditable(false);
 		textField_5.setBounds(249, 46, 249, 46);
 		panel_1.add(textField_5);
 		textField_5.setColumns(10);

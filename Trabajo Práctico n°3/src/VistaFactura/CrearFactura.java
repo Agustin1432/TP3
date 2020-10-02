@@ -29,7 +29,7 @@ public class CrearFactura extends JFrame{
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
-	Controlador control;
+	Controlador control= new Controlador();
 	public CrearFactura() {
 		setSize(700,700);
 		setLocationRelativeTo(null);
@@ -153,6 +153,18 @@ public class CrearFactura extends JFrame{
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
 		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("ListarFacturas");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_9) {
+					ListaFactura listaf= new ListaFactura();
+					listaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_9);
+		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
@@ -244,6 +256,7 @@ public class CrearFactura extends JFrame{
 		
 		
 		JList lista = new JList();
+		//lista.setModel(control.listarArticulos());
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lista.setBorder(UIManager.getBorder("ScrollPane.border"));
 		lista.setBounds(10, 208, 664, 122);
@@ -284,6 +297,11 @@ public class CrearFactura extends JFrame{
 		panel.add(lblNewLabel_8_1);
 		
 		JButton btnNewButton_2 = new JButton("CREAR FACTURA");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		btnNewButton_2.setBounds(10, 588, 136, 23);
 		panel.add(btnNewButton_2);
 		
@@ -316,6 +334,10 @@ public class CrearFactura extends JFrame{
 		});
 		btnNewButton_1.setBounds(585, 179, 89, 23);
 		panel.add(btnNewButton_1);
+		
+		JScrollPane scrollPane = new JScrollPane(lista);
+		scrollPane.setBounds(10, 208, 664, 122);
+		panel.add(scrollPane);
 		
 		
 	}

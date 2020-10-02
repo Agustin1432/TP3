@@ -15,6 +15,7 @@ import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
 import VistaArticulo.EliminarArticulo;
 import VistaFactura.CrearFactura;
+import VistaFactura.ListaFactura;
 
 public class BuscarCliente extends JFrame{
 	private JTextField textField;
@@ -148,6 +149,18 @@ public class BuscarCliente extends JFrame{
 			}
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
+		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("ListarFacturas");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_9) {
+					ListaFactura listaf= new ListaFactura();
+					listaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_9);
 		
 		
 		

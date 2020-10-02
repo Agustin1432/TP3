@@ -1,30 +1,34 @@
-package VistaCliente;
+package VistaFactura;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import Controlador.*;
-import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
 import VistaArticulo.BuscarArticulo;
 import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
 import VistaArticulo.EliminarArticulo;
-import VistaFactura.CrearFactura;
-import VistaFactura.ListaFactura;
+import VistaCliente.BuscarCliente;
+import VistaCliente.CrearCliente;
+import VistaCliente.EditarCliente;
+import VistaCliente.EliminarCliente;
+import javax.swing.JPanel;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import Interfaz.VentanaPrincipal;
 
-public class EliminarCliente extends JFrame{
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private Controlador control;
-	public EliminarCliente() {
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JScrollPane;
+
+public class ListaFactura extends JFrame {
+	public ListaFactura() {
 		setSize(700,700);
 		setLocationRelativeTo(null);
 		JMenuBar menuBar = new JMenuBar();
@@ -163,114 +167,34 @@ public class EliminarCliente extends JFrame{
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(98, 254, 485, 237);
-		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(5, 7, 0, 0));
-		
-		JLabel lblNewLabel = new JLabel("Nombre:");
-		lblNewLabel.setBounds(10, 72, 46, 14);
-		panel_1.add(lblNewLabel);
-		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(66, 69, 185, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("Apellido:");
-		lblNewLabel_1.setBounds(10, 97, 46, 14);
-		panel_1.add(lblNewLabel_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setBounds(66, 94, 185, 20);
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblNewLabel_2 = new JLabel("DNI");
-		lblNewLabel_2.setBounds(10, 122, 46, 14);
-		panel_1.add(lblNewLabel_2);
-		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setBounds(66, 119, 185, 20);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblNewLabel_3 = new JLabel("Direcci\u00F3n:");
-		lblNewLabel_3.setBounds(10, 147, 50, 14);
-		panel_1.add(lblNewLabel_3);
-		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setBounds(66, 144, 185, 20);
-		panel_1.add(textField_3);
-		textField_3.setColumns(10);
-		
-		JLabel lblNewLabel_4 = new JLabel("Tel\u00E9fono:");
-		lblNewLabel_4.setBounds(10, 172, 46, 14);
-		panel_1.add(lblNewLabel_4);
-		
-		textField_4 = new JTextField();
-		textField_4.setEditable(false);
-		textField_4.setBounds(66, 169, 185, 20);
-		panel_1.add(textField_4);
-		textField_4.setColumns(10);
-		
-		JButton btnNewButton = new JButton("BUSCAR");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(textField_5.getText().equals("")) {
-					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
-				}else{
-					Cliente eliminar;
-					eliminar=control.buscarCliente(textField_5.getText());
-					textField.setText(eliminar.getNombre());
-					textField_1.setText(eliminar.getApellido());
-					textField_2.setText(eliminar.getDni());
-					textField_3.setText(eliminar.getDireccion());
-					textField_4.setText(eliminar.getTelefono());
-				}
-			}
-		});
-		btnNewButton.setBounds(441, 150, 89, 23);
+		JButton btnNewButton = new JButton("Vista Previa");
+		btnNewButton.setBounds(10, 498, 111, 35);
 		panel.add(btnNewButton);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(236, 151, 195, 20);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
+		JList list = new JList();
+		list.setBounds(10, 84, 664, 391);
+		panel.add(list);
 		
-		JLabel lblNewLabel_5 = new JLabel("INGRESE EL DNI:");
-		lblNewLabel_5.setBounds(137, 154, 100, 14);
-		panel.add(lblNewLabel_5);
-		
-		JButton btnNewButton_1 = new JButton("ELIMINAR");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
-					control.eliminarCliente(textField_2.getText());;
-				}else {
-					JOptionPane.showMessageDialog(null,"Primero necesita buscar");
-				}
-			}
-		});
-		btnNewButton_1.setBounds(98, 538, 100, 40);
-		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("VOLVER");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==btnNewButton_2) {
+				if(arg0.getSource()==btnVolver) {
 					VentanaPrincipal ventanaprincipal= new VentanaPrincipal();
 					ventanaprincipal.setVisible(true);
 					setVisible(false);
 				}
 			}
 		});
-		btnNewButton_2.setBounds(494, 538, 100, 40);
-		panel.add(btnNewButton_2);
+		btnVolver.setBounds(585, 498, 89, 34);
+		panel.add(btnVolver);
+		
+		JLabel lblNewLabel = new JLabel("LISTA DE FACTURAS");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		lblNewLabel.setBounds(214, 41, 260, 32);
+		panel.add(lblNewLabel);
+		
+		JScrollPane scrollPane = new JScrollPane(list);
+		scrollPane.setBounds(10, 84, 664, 391);
+		panel.add(scrollPane);
 	}
-	
 }

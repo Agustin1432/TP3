@@ -25,6 +25,7 @@ import VistaCliente.CrearCliente;
 import VistaCliente.EditarCliente;
 import VistaCliente.EliminarCliente;
 import VistaFactura.CrearFactura;
+import VistaFactura.ListaFactura;
 import net.miginfocom.swing.MigLayout;
 
 public class CrearArticulo extends JFrame{
@@ -159,6 +160,18 @@ public class CrearArticulo extends JFrame{
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
 		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("ListarFacturas");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_9) {
+					ListaFactura listaf= new ListaFactura();
+					listaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_9);
+		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
@@ -286,6 +299,8 @@ public class CrearArticulo extends JFrame{
 		JRadioButton rdbtnElectricidad = new JRadioButton("Electricidad");
 		rdbtnElectricidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				lblNewLabel_3.setEnabled(true);
+				textField_2.setEnabled(true);
 				comboBox.setEnabled(true);
 				textArea.setEnabled(false);
 				lblNewLabel_6.setEnabled(false);

@@ -1,11 +1,15 @@
 package Controlador;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.ListModel;
 
+import Interfaz.VentanaPrincipal;
 import TrabajoPrácticoN3.*;
 
 public class Controlador {
@@ -14,9 +18,8 @@ public class Controlador {
 	private LinkedHashSet <TrabajoPrácticoN3.Herramientas> herramienta;
 	private LinkedHashSet <TrabajoPrácticoN3.Industrial> industrial;
 	private LinkedHashSet <TrabajoPrácticoN3.Domiciliaria> domiciliaria;
-	private DefaultListModel <String> nombreArticulos;
 	
-	
+
 	//GETTERS AND SETTERS
 	public LinkedHashSet<TrabajoPrácticoN3.Cliente> getCliente() {
 		return cliente;
@@ -203,21 +206,21 @@ public class Controlador {
 		}	
 	}
 	
-	public DefaultListModel <String> listarArticulos() {
+	public  ListModel<String> listarArticulos() {
 		Iterator <Herramientas> iterador = this.herramienta.iterator();
 		Iterator <Industrial> iterador1 = this.industrial.iterator();
 		Iterator <Domiciliaria> iterador2 = this.domiciliaria.iterator();
-		nombreArticulos = null;
+		DefaultListModel<String> modelo = new DefaultListModel<String>();
 		while(iterador.hasNext()) {
-			nombreArticulos.addElement(iterador.next().getNombre());
+			modelo.addElement(iterador.next().getNombre());
 		}
 		while(iterador1.hasNext()) {
-			nombreArticulos.addElement(iterador1.next().getNombre());
+			modelo.addElement(iterador1.next().getNombre());
 		}
 		while(iterador2.hasNext()) {
-			nombreArticulos.addElement(iterador2.next().getNombre());
+			modelo.addElement(iterador2.next().getNombre());
 		}
-		return nombreArticulos;
+		return modelo;
 		
 	}
 

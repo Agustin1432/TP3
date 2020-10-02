@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 
 import VistaCliente.*;
 import VistaFactura.CrearFactura;
+import VistaFactura.ListaFactura;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -66,8 +67,8 @@ public class VentanaPrincipal extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Editar");
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==mntmNewMenuItem_3) {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_3) {
 					EditarCliente editarc= new EditarCliente();
 					editarc.setVisible(true);
 					setVisible(false);
@@ -78,8 +79,8 @@ public class VentanaPrincipal extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Eliminar");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==mntmNewMenuItem_1) {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_1) {
 					EliminarCliente eliminarc= new EliminarCliente();
 					eliminarc.setVisible(true);
 					setVisible(false);
@@ -93,8 +94,8 @@ public class VentanaPrincipal extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Crear");
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==mntmNewMenuItem_4) {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_4) {
 					CrearArticulo crearc= new CrearArticulo();
 					crearc.setVisible(true);
 					setVisible(false);
@@ -105,8 +106,8 @@ public class VentanaPrincipal extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Buscar");
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==mntmNewMenuItem_5) {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_5) {
 					BuscarArticulo buscara= new BuscarArticulo();
 					buscara.setVisible(true);
 					setVisible(false);
@@ -114,7 +115,6 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_5);
-
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Editar");
 		mntmNewMenuItem_7.addActionListener(new ActionListener() {
@@ -154,6 +154,18 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
+		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("ListarFacturas");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_9) {
+					ListaFactura listaf= new ListaFactura();
+					listaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_9);
 		
 		
 		

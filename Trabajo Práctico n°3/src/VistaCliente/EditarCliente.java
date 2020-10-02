@@ -8,6 +8,7 @@ import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
 import VistaArticulo.EliminarArticulo;
 import VistaFactura.CrearFactura;
+import VistaFactura.ListaFactura;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -148,6 +149,18 @@ public class EditarCliente extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
+		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("ListarFacturas");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_9) {
+					ListaFactura listaf= new ListaFactura();
+					listaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_9);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
