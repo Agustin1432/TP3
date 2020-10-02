@@ -2,6 +2,10 @@ package Controlador;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+
 import TrabajoPrácticoN3.*;
 
 public class Controlador {
@@ -10,6 +14,7 @@ public class Controlador {
 	private LinkedHashSet <TrabajoPrácticoN3.Herramientas> herramienta;
 	private LinkedHashSet <TrabajoPrácticoN3.Industrial> industrial;
 	private LinkedHashSet <TrabajoPrácticoN3.Domiciliaria> domiciliaria;
+	private DefaultListModel <String> nombreArticulos;
 	
 	
 	//GETTERS AND SETTERS
@@ -25,6 +30,25 @@ public class Controlador {
 	public void setFactura(LinkedHashSet<TrabajoPrácticoN3.Factura> factura) {
 		this.factura = factura;
 	}
+	public LinkedHashSet<TrabajoPrácticoN3.Herramientas> getHerramienta() {
+		return herramienta;
+	}
+	public void setHerramienta(LinkedHashSet<TrabajoPrácticoN3.Herramientas> herramienta) {
+		this.herramienta = herramienta;
+	}
+	public LinkedHashSet<TrabajoPrácticoN3.Industrial> getIndustrial() {
+		return industrial;
+	}
+	public void setIndustrial(LinkedHashSet<TrabajoPrácticoN3.Industrial> industrial) {
+		this.industrial = industrial;
+	}
+	public LinkedHashSet<TrabajoPrácticoN3.Domiciliaria> getDomiciliaria() {
+		return domiciliaria;
+	}
+	public void setDomiciliaria(LinkedHashSet<TrabajoPrácticoN3.Domiciliaria> domiciliaria) {
+		this.domiciliaria = domiciliaria;
+	}
+	
 	
 	//METODOS DE CLIENTE
 	public void crearCliente (TrabajoPrácticoN3.Cliente cliente) {
@@ -179,4 +203,22 @@ public class Controlador {
 		}	
 	}
 	
+	public DefaultListModel <String> listarArticulos() {
+		Iterator <Herramientas> iterador = this.herramienta.iterator();
+		Iterator <Industrial> iterador1 = this.industrial.iterator();
+		Iterator <Domiciliaria> iterador2 = this.domiciliaria.iterator();
+		nombreArticulos = null;
+		while(iterador.hasNext()) {
+			nombreArticulos.addElement(iterador.next().getNombre());
+		}
+		while(iterador1.hasNext()) {
+			nombreArticulos.addElement(iterador1.next().getNombre());
+		}
+		while(iterador2.hasNext()) {
+			nombreArticulos.addElement(iterador2.next().getNombre());
+		}
+		return nombreArticulos;
+		
+	}
+
 }
