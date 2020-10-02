@@ -8,6 +8,11 @@ import java.awt.GridLayout;
 import Controlador.*;
 import Interfaz.VentanaPrincipal;
 import TrabajoPrácticoN3.*;
+import VistaArticulo.BuscarArticulo;
+import VistaArticulo.CrearArticulo;
+import VistaArticulo.EditarArticulo;
+import VistaArticulo.EliminarArticulo;
+import VistaFactura.CrearFactura;
 
 public class CrearCliente extends JFrame{
 	private JTextField textField;
@@ -34,15 +39,51 @@ public class CrearCliente extends JFrame{
 		menuBar.add(mnNewMenu);
 		this.paintAll(getGraphics());
 		JMenuItem mntmNewMenuItem = new JMenuItem("Crear");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem) {
+					CrearCliente crearc= new CrearCliente();
+					crearc.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Buscar");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_2) {
+					BuscarCliente buscarc= new BuscarCliente();
+					buscarc.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Editar");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_1) {
+					EditarCliente editarc= new EditarCliente();
+					editarc.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_3) {
+					EliminarCliente eliminarc= new EliminarCliente();
+					eliminarc.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_3);
 		
 		
@@ -50,21 +91,66 @@ public class CrearCliente extends JFrame{
 		menuBar.add(mnNewMenu_1);
 		this.paintAll(getGraphics());
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Crear");
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_4) {
+					CrearArticulo crearc= new CrearArticulo();
+					crearc.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Buscar");
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_6) {
+					BuscarArticulo buscara= new BuscarArticulo();
+					buscara.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_6);
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Editar");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_7) {
+					EditarArticulo editara= new EditarArticulo();
+					editara.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_7);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_6) {
+					EliminarArticulo elimia= new EliminarArticulo();
+					elimia.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_2 = new JMenu("Factura");
 		menuBar.add(mnNewMenu_2);
 		this.paintAll(getGraphics());
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Crear");
+		mntmNewMenuItem_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_8) {
+					CrearFactura crearf= new CrearFactura();
+					crearf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
 		
 		panel = new JPanel();

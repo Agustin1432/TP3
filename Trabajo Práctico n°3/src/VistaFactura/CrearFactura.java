@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 
 public class CrearFactura extends JFrame{
 	public CrearFactura() {
+		setSize(700,700);
+		setLocationRelativeTo(null);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		

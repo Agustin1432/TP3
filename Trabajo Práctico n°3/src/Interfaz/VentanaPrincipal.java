@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 
 import VistaCliente.*;
+import VistaFactura.CrearFactura;
+
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -102,18 +104,55 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Buscar");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==mntmNewMenuItem_5) {
+					BuscarArticulo buscara= new BuscarArticulo();
+					buscara.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_5);
+
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Editar");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_7) {
+					EditarArticulo editara= new EditarArticulo();
+					editara.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_7);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_6) {
+					EliminarArticulo elimia= new EliminarArticulo();
+					elimia.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_6);
 		
 		JMenu mnNewMenu_2 = new JMenu("Factura");
 		menuBar.add(mnNewMenu_2);
 		
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Crear");
+		mntmNewMenuItem_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==mntmNewMenuItem_8) {
+					CrearFactura crearf= new CrearFactura();
+					crearf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_8);
 		
 		
