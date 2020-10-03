@@ -225,6 +225,12 @@ public class CrearCliente extends JFrame{
 				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
 					TrabajoPracticoN3.Cliente crear= new TrabajoPracticoN3.Cliente(textField.getText(), textField_1.getText(), textField_2.getText(),textField_3.getText(), textField_4.getText());
 					control.crearCliente(crear);
+					JOptionPane.showMessageDialog(null,"Se ha creado un nuevo cliente con exito");
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					textField_3.setText("");
+					textField_4.setText("");
 				}else {
 					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar todos los campos");
 				}

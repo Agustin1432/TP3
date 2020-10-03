@@ -28,11 +28,11 @@ public class BuscarArticulo extends JFrame {
 	private Controlador contro;
 	private JTextField textField_4;
 	private JTextField textField_7;
-	Controlador control;
+
 	
 	
 	public BuscarArticulo(Controlador control2) {
-		control=control2;
+		contro=control2;
 		setSize(700,700);
 		setLocationRelativeTo(null);
 
@@ -47,7 +47,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem) {
-					CrearCliente crearc= new CrearCliente(control);
+					CrearCliente crearc= new CrearCliente(contro);
 					crearc.setVisible(true);
 					setVisible(false);
 				}
@@ -59,7 +59,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_2) {
-					BuscarCliente buscarc= new BuscarCliente(control);
+					BuscarCliente buscarc= new BuscarCliente(contro);
 					buscarc.setVisible(true);
 					setVisible(false);
 				}
@@ -71,7 +71,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_3) {
-					EditarCliente editarc= new EditarCliente(control);
+					EditarCliente editarc= new EditarCliente(contro);
 					editarc.setVisible(true);
 					setVisible(false);
 				}
@@ -83,7 +83,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_1) {
-					EliminarCliente eliminarc= new EliminarCliente(control);
+					EliminarCliente eliminarc= new EliminarCliente(contro);
 					eliminarc.setVisible(true);
 					setVisible(false);
 				}
@@ -98,7 +98,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_4) {
-					CrearArticulo crearc= new CrearArticulo(control);
+					CrearArticulo crearc= new CrearArticulo(contro);
 					crearc.setVisible(true);
 					setVisible(false);
 				}
@@ -110,7 +110,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_5) {
-					BuscarArticulo buscara= new BuscarArticulo(control);
+					BuscarArticulo buscara= new BuscarArticulo(contro);
 					buscara.setVisible(true);
 					setVisible(false);
 				}
@@ -122,7 +122,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_7) {
-					EditarArticulo editara= new EditarArticulo(control);
+					EditarArticulo editara= new EditarArticulo(contro);
 					editara.setVisible(true);
 					setVisible(false);
 				}
@@ -134,7 +134,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_6) {
-					EliminarArticulo elimia= new EliminarArticulo(control);
+					EliminarArticulo elimia= new EliminarArticulo(contro);
 					elimia.setVisible(true);
 					setVisible(false);
 				}
@@ -149,7 +149,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==mntmNewMenuItem_8) {
-					CrearFactura crearf= new CrearFactura(control);
+					CrearFactura crearf= new CrearFactura(contro);
 					crearf.setVisible(true);
 					setVisible(false);
 				}
@@ -161,7 +161,7 @@ public class BuscarArticulo extends JFrame {
 		mntmNewMenuItem_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource()==mntmNewMenuItem_9) {
-					ListaFactura listaf= new ListaFactura(control);
+					ListaFactura listaf= new ListaFactura(contro);
 					listaf.setVisible(true);
 					setVisible(false);
 				}
@@ -375,7 +375,7 @@ public class BuscarArticulo extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource()==btnVolver) {
-					VentanaPrincipal ventanaprincipal= new VentanaPrincipal(control);
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal(contro);
 					ventanaprincipal.setVisible(true);
 					setVisible(false);
 				}

@@ -257,8 +257,7 @@ public class CrearFactura extends JFrame{
 		
 		
 		
-		JList lista = new JList();
-		//lista.setModel(control.listarArticulos());
+		JList lista = new JList(control.listarArticulos());
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lista.setBorder(UIManager.getBorder("ScrollPane.border"));
 		lista.setBounds(10, 208, 664, 122);

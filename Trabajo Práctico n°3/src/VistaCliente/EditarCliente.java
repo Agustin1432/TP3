@@ -234,6 +234,12 @@ public class EditarCliente extends JFrame {
 					textField_2.setText(editar.getDni());
 					textField_3.setText(editar.getDireccion());
 					textField_4.setText(editar.getTelefono());
+					textField.setEnabled(true);
+					textField_1.setEnabled(true);
+					textField_2.setEnabled(true);
+					textField_3.setEnabled(true);
+					textField_4.setEnabled(true);
+					
 				}
 			}
 		});
@@ -254,7 +260,8 @@ public class EditarCliente extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
 					editar= new Cliente(textField.getText(), textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText());
-					control.editarCliente(textField_5.getText(),editar);;
+					control.editarCliente(textField_5.getText(),editar);
+					JOptionPane.showMessageDialog(null,"Ah sido editado con exito");
 				}else {
 					JOptionPane.showMessageDialog(null,"Primero necesita buscar");
 				}

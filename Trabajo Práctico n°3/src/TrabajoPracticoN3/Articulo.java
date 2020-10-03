@@ -31,6 +31,9 @@ public abstract class Articulo {
 	public String toString() {
 		return "Articulo [nombre=" + nombre + ", precio=" + precio + "]";
 	}
+
+
+
 	
 
 	
