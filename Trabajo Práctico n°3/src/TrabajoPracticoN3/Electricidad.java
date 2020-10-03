@@ -1,4 +1,4 @@
-package TrabajoPrácticoN3;
+package TrabajoPracticoN3;
 
 public abstract class Electricidad extends Articulo {
 	private double potenciaMaxima;

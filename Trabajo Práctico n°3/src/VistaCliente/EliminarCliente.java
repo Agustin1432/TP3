@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import Controlador.*;
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import TrabajoPracticoN3.*;
 import VistaArticulo.BuscarArticulo;
 import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;

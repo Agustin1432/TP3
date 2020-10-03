@@ -9,7 +9,7 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.event.*;
 import Controlador.*;
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import TrabajoPracticoN3.*;
 import VistaArticulo.BuscarArticulo;
 import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
@@ -244,7 +244,8 @@ public class BuscarCliente extends JFrame{
 					if(textField_5.getText().equals("")) {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
 					}else{
-					TrabajoPrácticoN3.Cliente cliente;
+					TrabajoPracticoN3.Cliente cliente;
+					System.out.println(textField_5.getText());
 					cliente=contro.buscarCliente(textField_5.getText());
 					textField.setText(cliente.getNombre());
 					textField_1.setText(cliente.getApellido());

@@ -1,4 +1,4 @@
-package TrabajoPrácticoN3;
+package TrabajoPracticoN3;
 
 public class Industrial extends Electricidad{
 	private double temperatiraMinima;

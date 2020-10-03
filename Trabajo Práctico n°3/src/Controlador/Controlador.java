@@ -10,15 +10,16 @@ import javax.swing.JList;
 import javax.swing.ListModel;
 
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import TrabajoPracticoN3.*;
 
 public class Controlador {
-	private LinkedHashSet <TrabajoPrácticoN3.Cliente> cliente;
-	private LinkedHashSet <TrabajoPrácticoN3.Factura> factura;
-	private LinkedHashSet <TrabajoPrácticoN3.Herramientas> herramienta;
-	private LinkedHashSet <TrabajoPrácticoN3.Industrial> industrial;
-	private LinkedHashSet <TrabajoPrácticoN3.Domiciliaria> domiciliaria;
+	private LinkedHashSet <TrabajoPracticoN3.Cliente> cliente;
+	private LinkedHashSet <TrabajoPracticoN3.Factura> factura;
+	private LinkedHashSet <TrabajoPracticoN3.Herramientas> herramienta;
+	private LinkedHashSet <TrabajoPracticoN3.Industrial> industrial;
+	private LinkedHashSet <TrabajoPracticoN3.Domiciliaria> domiciliaria;
 	DefaultListModel <String> nombreArticulos;
+	
 	public Controlador(){
 		cliente = new LinkedHashSet<Cliente>();
 		factura = new LinkedHashSet<Factura>();
@@ -28,55 +29,58 @@ public class Controlador {
 		nombreArticulos= new DefaultListModel <String>();	
 	}
 
+	
+	
 	//GETTERS AND SETTERS
-	public LinkedHashSet<TrabajoPrácticoN3.Cliente> getCliente() {
+	public LinkedHashSet<TrabajoPracticoN3.Cliente> getCliente() {
 		return cliente;
 	}
-	public void setCliente(LinkedHashSet<TrabajoPrácticoN3.Cliente> cliente) {
+	public void setCliente(LinkedHashSet<TrabajoPracticoN3.Cliente> cliente) {
 		this.cliente = cliente;
 	}
-	public LinkedHashSet<TrabajoPrácticoN3.Factura> getFactura() {
+	public LinkedHashSet<TrabajoPracticoN3.Factura> getFactura() {
 		return factura;
 	}
-	public void setFactura(LinkedHashSet<TrabajoPrácticoN3.Factura> factura) {
+	public void setFactura(LinkedHashSet<TrabajoPracticoN3.Factura> factura) {
 		this.factura = factura;
 	}
-	public LinkedHashSet<TrabajoPrácticoN3.Herramientas> getHerramienta() {
+	public LinkedHashSet<TrabajoPracticoN3.Herramientas> getHerramienta() {
 		return herramienta;
 	}
-	public void setHerramienta(LinkedHashSet<TrabajoPrácticoN3.Herramientas> herramienta) {
+	public void setHerramienta(LinkedHashSet<TrabajoPracticoN3.Herramientas> herramienta) {
 		this.herramienta = herramienta;
 	}
-	public LinkedHashSet<TrabajoPrácticoN3.Industrial> getIndustrial() {
+	public LinkedHashSet<TrabajoPracticoN3.Industrial> getIndustrial() {
 		return industrial;
 	}
-	public void setIndustrial(LinkedHashSet<TrabajoPrácticoN3.Industrial> industrial) {
+	public void setIndustrial(LinkedHashSet<TrabajoPracticoN3.Industrial> industrial) {
 		this.industrial = industrial;
 	}
-	public LinkedHashSet<TrabajoPrácticoN3.Domiciliaria> getDomiciliaria() {
+	public LinkedHashSet<TrabajoPracticoN3.Domiciliaria> getDomiciliaria() {
 		return domiciliaria;
 	}
-	public void setDomiciliaria(LinkedHashSet<TrabajoPrácticoN3.Domiciliaria> domiciliaria) {
+	public void setDomiciliaria(LinkedHashSet<TrabajoPracticoN3.Domiciliaria> domiciliaria) {
 		this.domiciliaria = domiciliaria;
 	}
 	
 	
 	//METODOS DE CLIENTE
-	public void crearCliente (TrabajoPrácticoN3.Cliente cliente) {
+	public void crearCliente (TrabajoPracticoN3.Cliente cliente) {
 		this.cliente.add(cliente);
 	}
-	public TrabajoPrácticoN3.Cliente buscarCliente (String dni) {
-		
-		TrabajoPrácticoN3.Cliente buscar = null ;
+	public TrabajoPracticoN3.Cliente buscarCliente (String dni) {
+		TrabajoPracticoN3.Cliente buscar = null ;
+		TrabajoPracticoN3.Cliente next= null;
 		Iterator <Cliente> iterador = this.cliente.iterator();
 		while(iterador.hasNext()) {
-			if(iterador.next().getDni()==dni) {
-				buscar=new TrabajoPrácticoN3.Cliente(iterador.next().getNombre(),iterador.next().getApellido(),iterador.next().getDni(),iterador.next().getDireccion(),iterador.next().getTelefono());
+			next=iterador.next();
+			if(dni.equals(next.getDni())) {
+				buscar=new TrabajoPracticoN3.Cliente(next.getNombre(),next.getApellido(),next.getDni(),next.getDireccion(),next.getTelefono());
 			}
 		}
 		return buscar;	
 	}
-	public void editarCliente (String dni,TrabajoPrácticoN3.Cliente cliente) {
+	public void editarCliente (String dni,TrabajoPracticoN3.Cliente cliente) {
 		int z=0;
 		Iterator <Cliente> iterador = this.cliente.iterator();
 		while(iterador.hasNext()&& z==0) {
@@ -98,57 +102,57 @@ public class Controlador {
 
 	
 	//METODOS DE ARTICULO
-	public void crearherramienta (TrabajoPrácticoN3.Herramientas herramienta) {
+	public void crearherramienta (TrabajoPracticoN3.Herramientas herramienta) {
 			this.herramienta.add(herramienta);
 		
 	}
-	public void crearIndustrial (TrabajoPrácticoN3.Industrial industrial) {
+	public void crearIndustrial (TrabajoPracticoN3.Industrial industrial) {
 		this.industrial.add(industrial);
 	
 	}
-	public void crearDomiciliaria (TrabajoPrácticoN3.Domiciliaria domiciliaria) {
+	public void crearDomiciliaria (TrabajoPracticoN3.Domiciliaria domiciliaria) {
 		this.domiciliaria.add(domiciliaria);
 	
 	}
 	//BUSCAR ARTICULO
-	public TrabajoPrácticoN3.Herramientas buscarHerramienta(String nombre) {
+	public TrabajoPracticoN3.Herramientas buscarHerramienta(String nombre) {
 		int z=0;
-		TrabajoPrácticoN3.Herramientas buscar = null ;
+		TrabajoPracticoN3.Herramientas buscar = null ;
 		Iterator <Herramientas> iterador = this.herramienta.iterator();
 		while(iterador.hasNext() && z==0) {
 			if(nombre.equals(iterador.next().getNombre())) {
-				buscar=new TrabajoPrácticoN3.Herramientas(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getDescripcion());
+				buscar=new TrabajoPracticoN3.Herramientas(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getDescripcion());
 				z=1;
 			}
 		}
 		return buscar;	
 	}
-	public TrabajoPrácticoN3.Industrial buscarIndustrial(String nombre) {
+	public TrabajoPracticoN3.Industrial buscarIndustrial(String nombre) {
 		int z=0;
-		TrabajoPrácticoN3.Industrial buscar = null ;
+		TrabajoPracticoN3.Industrial buscar = null ;
 		Iterator <Industrial> iterador = this.industrial.iterator();
 		while(iterador.hasNext() && z==0) {
 			if(nombre.equals(iterador.next().getNombre())) {
-				buscar=new TrabajoPrácticoN3.Industrial(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getPotenciaMaxima(),iterador.next().getTemperatiraMinima(),iterador.next().getTemperaturaMaxima());
+				buscar=new TrabajoPracticoN3.Industrial(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getPotenciaMaxima(),iterador.next().getTemperatiraMinima(),iterador.next().getTemperaturaMaxima());
 				z=1;
 			}
 		}
 		return buscar;	
 	}
-	public TrabajoPrácticoN3.Domiciliaria buscarDomiciliaria(String nombre) {
+	public TrabajoPracticoN3.Domiciliaria buscarDomiciliaria(String nombre) {
 		int z=0;
-		TrabajoPrácticoN3.Domiciliaria buscar = null ;
+		TrabajoPracticoN3.Domiciliaria buscar = null ;
 		Iterator <Domiciliaria> iterador = this.domiciliaria.iterator();
 		while(iterador.hasNext() && z==0) {
 			if(nombre.equals(iterador.next().getNombre())) {
-				buscar=new TrabajoPrácticoN3.Domiciliaria(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getPotenciaMaxima());
+				buscar=new TrabajoPracticoN3.Domiciliaria(iterador.next().getNombre(), iterador.next().getPrecio(), iterador.next().getPotenciaMaxima());
 				z=1;
 			}
 		}
 		return buscar;	
 	}
 	//EDITAR ARTICULO
-	public void editarHerramienta (String nombre,TrabajoPrácticoN3.Herramientas herramienta) {
+	public void editarHerramienta (String nombre,TrabajoPracticoN3.Herramientas herramienta) {
 		int z=0;
 		Iterator <Herramientas> iterador = this.herramienta.iterator();
 		while(iterador.hasNext()&& z==0) {
@@ -159,7 +163,7 @@ public class Controlador {
 			}
 		}	
 	}
-	public void editarIndustrial (String nombre,TrabajoPrácticoN3.Industrial industrial) {
+	public void editarIndustrial (String nombre,TrabajoPracticoN3.Industrial industrial) {
 		int z=0;
 		Iterator <Industrial> iterador = this.industrial.iterator();
 		while(iterador.hasNext()&& z==0) {
@@ -170,7 +174,7 @@ public class Controlador {
 			}
 		}	
 	}
-	public void editarDomiciliaria (String nombre,TrabajoPrácticoN3.Domiciliaria domiciliaria) {
+	public void editarDomiciliaria (String nombre,TrabajoPracticoN3.Domiciliaria domiciliaria) {
 		int z=0;
 		Iterator <Domiciliaria> iterador = this.domiciliaria.iterator();
 		while(iterador.hasNext()&& z==0) {

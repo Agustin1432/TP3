@@ -2,7 +2,6 @@ package VistaCliente;
 
 import javax.swing.*;
 
-import TrabajoPrácticoN3.Cliente;
 import VistaArticulo.BuscarArticulo;
 import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
@@ -16,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Controlador.*;
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import TrabajoPracticoN3.*;
 
 public class EditarCliente extends JFrame {
 	private JTextField textField;

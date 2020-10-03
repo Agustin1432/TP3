@@ -1,4 +1,4 @@
-package TrabajoPrácticoN3;
+package TrabajoPracticoN3;
 import java.util.*;
 
 public class Item {

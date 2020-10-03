@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 import Controlador.*;
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import TrabajoPracticoN3.*;
 import VistaArticulo.BuscarArticulo;
 import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
@@ -223,7 +223,7 @@ public class CrearCliente extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
-					TrabajoPrácticoN3.Cliente crear= new TrabajoPrácticoN3.Cliente(textField.getText(), textField_1.getText(), textField_2.getText(),textField_3.getText(), textField_4.getText());
+					TrabajoPracticoN3.Cliente crear= new TrabajoPracticoN3.Cliente(textField.getText(), textField_1.getText(), textField_2.getText(),textField_3.getText(), textField_4.getText());
 					control.crearCliente(crear);
 				}else {
 					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar todos los campos");

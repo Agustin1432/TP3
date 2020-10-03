@@ -3,6 +3,7 @@ package VistaFactura;
 import javax.swing.*;
 
 import Interfaz.VentanaPrincipal;
+import TrabajoPracticoN3.*;
 import VistaArticulo.BuscarArticulo;
 import VistaArticulo.CrearArticulo;
 import VistaArticulo.EditarArticulo;
@@ -12,7 +13,7 @@ import VistaCliente.CrearCliente;
 import VistaCliente.EditarCliente;
 import VistaCliente.EliminarCliente;
 import Controlador.*;
-import TrabajoPrácticoN3.*;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -177,7 +178,7 @@ public class CrearFactura extends JFrame{
 					if(textField.getText().equals("")) {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
 					}else{
-					TrabajoPrácticoN3.Cliente cliente;
+					TrabajoPracticoN3.Cliente cliente;
 					cliente=control.buscarCliente(textField_5.getText());
 					textField_1.setText(cliente.getNombre());
 					textField_2.setText(cliente.getApellido());

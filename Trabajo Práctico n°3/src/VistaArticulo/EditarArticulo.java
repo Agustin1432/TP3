@@ -4,10 +4,10 @@ import javax.swing.*;
 
 import Controlador.Controlador;
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.Cliente;
-import TrabajoPrácticoN3.Domiciliaria;
-import TrabajoPrácticoN3.Herramientas;
-import TrabajoPrácticoN3.Industrial;
+import TrabajoPracticoN3.Cliente;
+import TrabajoPracticoN3.Domiciliaria;
+import TrabajoPracticoN3.Herramientas;
+import TrabajoPracticoN3.Industrial;
 import VistaCliente.BuscarCliente;
 import VistaCliente.CrearCliente;
 import VistaCliente.EditarCliente;
@@ -316,9 +316,9 @@ public class EditarArticulo extends JFrame{
 					if(textField.getText().equals("")) {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
 					}else{
-					TrabajoPrácticoN3.Herramientas herramienta;
-					TrabajoPrácticoN3.Industrial industrial;
-					TrabajoPrácticoN3.Domiciliaria domiciliaria;
+					TrabajoPracticoN3.Herramientas herramienta;
+					TrabajoPracticoN3.Industrial industrial;
+					TrabajoPracticoN3.Domiciliaria domiciliaria;
 					
 					
 					herramienta=contro.buscarHerramienta(textField.getText());

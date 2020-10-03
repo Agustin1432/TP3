@@ -1,4 +1,4 @@
-package TrabajoPrácticoN3;
+package TrabajoPracticoN3;
 
 public class Herramientas extends Articulo{
 	private String descripcion;

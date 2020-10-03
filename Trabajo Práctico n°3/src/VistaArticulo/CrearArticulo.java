@@ -19,7 +19,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import Controlador.*;
 import Interfaz.VentanaPrincipal;
-import TrabajoPrácticoN3.*;
+import TrabajoPracticoN3.*;
 import VistaCliente.BuscarCliente;
 import VistaCliente.CrearCliente;
 import VistaCliente.EditarCliente;

@@ -335,9 +335,9 @@ public class BuscarArticulo extends JFrame {
 					if(textField.getText().equals("")) {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
 					}else{
-					TrabajoPrácticoN3.Herramientas herramienta;
-					TrabajoPrácticoN3.Industrial industrial;
-					TrabajoPrácticoN3.Domiciliaria domiciliaria;
+					TrabajoPracticoN3.Herramientas herramienta;
+					TrabajoPracticoN3.Industrial industrial;
+					TrabajoPracticoN3.Domiciliaria domiciliaria;
 					
 					
 					herramienta=contro.buscarHerramienta(textField.getText());
