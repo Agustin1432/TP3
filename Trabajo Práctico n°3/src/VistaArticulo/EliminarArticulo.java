@@ -315,54 +315,13 @@ public class EliminarArticulo extends JFrame {
 						TrabajoPracticoN3.Articulo articulo;
 						articulo=contro.buscarArticulo(textField.getText());
 						if(articulo instanceof Herramientas) {
-							lblNombre.setVisible(true);
-							nombre.setVisible(true);
-							lblPrecio.setVisible(true);
-							precio.setVisible(true);
-							lblDescripcion.setVisible(true);
-							potenMaxi.setVisible(true);
-							nombre.setText(articulo.getNombre());
-							String cadena = String.valueOf(articulo.getPrecio());
-							precio.setText(cadena);
-							potenMaxi.setText(((Herramientas)articulo).getDescripcion());
+							
 						}
 						if(articulo instanceof Domiciliaria) {
-							lblNombre.setVisible(true);
-							nombre.setVisible(true);
-							lblPrecio.setVisible(true);
-							precio.setVisible(true);
-							lblDescripcion.setVisible(false);
-							potenMaxi.setVisible(false);
-							nombre.setText(articulo.getNombre());
-							String cadena = String.valueOf(articulo.getPrecio());
-							precio.setText(cadena);
-							lblPotenMax.setVisible(true);
-							PotenMax.setVisible(true);
-							String cadena2 = String.valueOf(((Domiciliaria)articulo).getPotenciaMaxima());
-							PotenMax.setText(cadena2);
+							
 						}
 						if(articulo instanceof Industrial) {
-							lblNombre.setVisible(true);
-							nombre.setVisible(true);
-							lblPrecio.setVisible(true);
-							precio.setVisible(true);
-							lblDescripcion.setVisible(false);
-							potenMaxi.setVisible(false);
-							nombre.setText(articulo.getNombre());
-							String cadena = String.valueOf(articulo.getPrecio());
-							precio.setText(cadena);
-							lblPotenMax.setVisible(true);
-							PotenMax.setVisible(true);
-							String cadena2 = String.valueOf(((Industrial)articulo).getPotenciaMaxima());
-							PotenMax.setText(cadena2);
-							lblTempMin.setVisible(true);
-							tempMin.setVisible(true);
-							String cadena3 = String.valueOf(((Industrial)articulo).getTemperatiraMinima());
-							tempMin.setText(cadena3);
-							lblTemperaturaMaxima.setVisible(true);
-							temMax.setVisible(true);
-							String cadena4 = String.valueOf(((Industrial)articulo).getTemperaturaMaxima());
-							temMax.setText(cadena4);
+							
 						}
 						
 						}
@@ -414,16 +373,16 @@ public class EliminarArticulo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(!textField.getText().equals("")&&!textField_6.getText().equals("")&&!textField_5.getText().equals("")) {
 					
-					contro.eliminarHerramienta(textField.getText());;
+					contro.eliminarArticulo(textField.getText());;
 				}else {
 					if(!textField.getText().equals("")&&!textField_7.getText().equals("")&&!textField_5.getText().equals("")&&!textField_10.getText().equals("")&&!textField_4.getText().equals("")){
 						
-						contro.eliminarIndustrial(textField.getText());;
+						contro.eliminarArticulo(textField.getText());;
 						
 					}else{
 						if(!textField.getText().equals("")&&!textField_4.getText().equals("")&&!textField_5.getText().equals("")){
 					
-							contro.eliminarDomiciliaria(textField.getText());;
+							contro.eliminarArticulo(textField.getText());;
 						}
 					}
 				

@@ -355,7 +355,7 @@ public class CrearArticulo extends JFrame{
 							double doble = Double.parseDouble(textField_1.getText());
 							double doble1 = Double.parseDouble(textField_2.getText());
 							Domiciliaria domi = new Domiciliaria(textField.getText(), doble, doble1);
-							//control.crearArticulo(domi);
+							control.crearArticulo(domi);
 						}else
 							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la potencia máxima");
 					}

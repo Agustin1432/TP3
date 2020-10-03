@@ -30,7 +30,8 @@ public class CrearFactura extends JFrame{
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
-	Controlador control;
+	private Controlador control;
+	
 	public CrearFactura(Controlador control2) {
 		control=control2;
 		setSize(700,700);
@@ -171,26 +172,7 @@ public class CrearFactura extends JFrame{
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton("BUSCAR");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==btnNewButton) {
-					if(textField.getText().equals("")) {
-						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
-					}else{
-					TrabajoPracticoN3.Cliente cliente;
-					cliente=control.buscarCliente(textField_5.getText());
-					textField_1.setText(cliente.getNombre());
-					textField_2.setText(cliente.getApellido());
-					textField_3.setText(cliente.getDni());
-					textField_4.setText(cliente.getDireccion());
-					textField_5.setText(cliente.getTelefono());
-					}
-				}
-			}
-		});
-		btnNewButton.setBounds(236, 11, 89, 23);
-		panel.add(btnNewButton);
+		
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -330,7 +312,8 @@ public class CrearFactura extends JFrame{
 		JButton btnNewButton_1 = new JButton("AGREGAR");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				textArea.setText(String.valueOf(lista.getSelectedValue()));
+				textArea.setText(String.valueOf(lista.getSelectedValue())+"\n");
+				
 			}
 		});
 		btnNewButton_1.setBounds(585, 179, 89, 23);
@@ -340,6 +323,26 @@ public class CrearFactura extends JFrame{
 		scrollPane.setBounds(10, 208, 664, 122);
 		panel.add(scrollPane);
 		
+		JButton btnNewButton = new JButton("BUSCAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton) {
+					if(textField.getText().equals("")) {
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
+					}else{
+					TrabajoPracticoN3.Cliente cliente = null;
+					cliente=control.buscarCliente(textField.getText());
+					textField_1.setText(cliente.getNombre());
+					textField_2.setText(cliente.getApellido());
+					textField_3.setText(cliente.getDni());
+					textField_4.setText(cliente.getDireccion());
+					textField_5.setText(cliente.getTelefono());
+					}
+				}
+			}
+		});
+		btnNewButton.setBounds(236, 11, 89, 23);
+		panel.add(btnNewButton);
 		
 	}
 }
