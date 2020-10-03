@@ -365,7 +365,7 @@ public class CrearArticulo extends JFrame{
 							double doble2 = Double.parseDouble(textField_3.getText());
 							double doble3 = Double.parseDouble(textField_4.getText());
 							Industrial indu = new Industrial(textField_1.getText(), doble, doble1, doble2, doble3);
-							//control.crearArticulo(indu);
+							control.crearArticulo(indu);
 						}else
 							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio, la potencia máxima, temperatura minima y la temperatura máxima");
 					}
