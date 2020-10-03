@@ -107,12 +107,15 @@ public class Controlador {
 		TrabajoPracticoN3.Articulo buscarh = null ;
 		TrabajoPracticoN3.Articulo next = null ;
 		Iterator <Articulo> iterador = this.articulo.iterator();
+		System.out.println("holaaaaa");
 		while(iterador.hasNext()) {
 			next=iterador.next();
+			System.out.println(next.getNombre());
 			if(nombre.equals(next.getNombre())) {
+				
 				if (next instanceof Herramientas) {
 					buscarh= new Herramientas(next.getNombre(), next.getPrecio(),((Herramientas) next).getDescripcion());
-					System.out.println("holaaaaa");
+					
 				}
 
 				if (next instanceof Electricidad) {

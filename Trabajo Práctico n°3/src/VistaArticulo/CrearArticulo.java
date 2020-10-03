@@ -345,7 +345,6 @@ public class CrearArticulo extends JFrame{
 						double doble = Double.parseDouble(textField_1.getText());
 						Herramientas herra= new Herramientas(textField.getText(),doble, textArea.getText());
 						control.crearArticulo(herra);
-						
 					}else
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la descripcion");
 				}

@@ -4,8 +4,8 @@ public class Herramientas extends Articulo{
 	private String descripcion;
 
 	
-	public Herramientas(String nombre2, double precio2, String descripcion) {
-		super(nombre2, precio2);
+	public Herramientas(String nombre, double precio2, String descripcion) {
+		super(nombre, precio2);
 		this.descripcion = descripcion;
 	}
 
@@ -21,7 +21,7 @@ public class Herramientas extends Articulo{
 
 	
 	public String toString() {
-		return "Herramientas [descripcion=" + descripcion + "]";
+		return getNombre()+"Herramientas [descripcion=" + descripcion + "]";
 	}
 
 	

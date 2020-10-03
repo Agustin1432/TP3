@@ -5,7 +5,8 @@ public abstract class Articulo {
 	private double precio;
 	
 	public Articulo(String nombre2, double precio2) {
-		
+		this.nombre=nombre2;
+		this.precio=precio2;
 	}
 	
 	public String getNombre() {
