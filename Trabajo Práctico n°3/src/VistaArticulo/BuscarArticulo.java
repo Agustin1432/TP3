@@ -4,6 +4,8 @@ import javax.swing.*;
 
 import Controlador.Controlador;
 import Interfaz.VentanaPrincipal;
+import TrabajoPracticoN3.*;
+import TrabajoPracticoN3.Herramientas;
 import VistaCliente.BuscarCliente;
 import VistaCliente.CrearCliente;
 import VistaCliente.EditarCliente;
@@ -22,12 +24,12 @@ public class BuscarArticulo extends JFrame {
 	
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nombre;
 	private JTextField textField_3;
-	private JTextField textField_5;
+	private JTextField precio;
 	private Controlador contro;
-	private JTextField textField_4;
-	private JTextField textField_7;
+	private JTextField PotenMax;
+	private JTextField temMax;
 
 	
 	
@@ -174,7 +176,7 @@ public class BuscarArticulo extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(98, 113, 495, 47);
+		panel_2.setBounds(98, 113, 317, 47);
 		panel.add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -188,145 +190,91 @@ public class BuscarArticulo extends JFrame {
 		textField.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(98, 330, 498, 276);
+		panel_1.setBounds(98, 181, 498, 276);
 		panel.add(panel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Tipo:");
-		lblNewLabel_2.setBounds(98, 197, 46, 14);
-		panel.add(lblNewLabel_2);
+		
+		JLabel lblDescripcion = new JLabel("DESCRIPCION:");
+		lblDescripcion.setVisible(false);
+		lblDescripcion.setBounds(0, 92, 249, 46);
+		panel_1.add(lblDescripcion);
+		lblDescripcion.setVisible(false);
+		
+		JTextField potenMaxi = new JTextField();
+		potenMaxi.setVisible(false);
+		potenMaxi.setEditable(false);
+		potenMaxi.setBounds(249, 92, 249, 46);
+		panel_1.add(potenMaxi);
+		potenMaxi.setColumns(10);
+		potenMaxi.setVisible(false);
 		
 		
-		JLabel lblNewLabel_3 = new JLabel("DESCRIPCION:");
-		lblNewLabel_3.setBounds(0, 92, 249, 46);
-		panel_1.add(lblNewLabel_3);
-		lblNewLabel_3.setVisible(false);
-		
-		JTextField textField_6 = new JTextField();
-		textField_6.setEditable(false);
-		textField_6.setBounds(249, 92, 249, 46);
-		panel_1.add(textField_6);
-		textField_6.setColumns(10);
-		textField_6.setVisible(false);
-		
-		
-		JLabel lblNewLabel_9 = new JLabel("POTENCIA MAXIMA:");
-		lblNewLabel_9.setBounds(0, 92, 249, 46);
-		panel_1.add(lblNewLabel_9);
-		lblNewLabel_9.setVisible(false);
+		JLabel lblPotenMax = new JLabel("POTENCIA MAXIMA:");
+		lblPotenMax.setVisible(false);
+		lblPotenMax.setBounds(0, 92, 249, 46);
+		panel_1.add(lblPotenMax);
+		lblPotenMax.setVisible(false);
 
 		
-		textField_4 = new JTextField();
-		textField_4.setEditable(false);
-		textField_4.setBounds(249, 92, 249, 46);
-		panel_1.add(textField_4);
-		textField_4.setColumns(10);
-		textField_4.setVisible(false);
+		PotenMax = new JTextField();
+		PotenMax.setVisible(false);
+		PotenMax.setEditable(false);
+		PotenMax.setBounds(249, 92, 249, 46);
+		panel_1.add(PotenMax);
+		PotenMax.setColumns(10);
+		PotenMax.setVisible(false);
 		
-		JLabel lblNewLabel_10 = new JLabel("TEMPERATURA MINIMA:");
-		lblNewLabel_10.setBounds(0, 138, 249, 46);
-		panel_1.add(lblNewLabel_10);
-		lblNewLabel_10.setVisible(false);
+		JLabel lblTempMin = new JLabel("TEMPERATURA MINIMA:");
+		lblTempMin.setVisible(false);
+		lblTempMin.setBounds(0, 138, 249, 46);
+		panel_1.add(lblTempMin);
+		lblTempMin.setVisible(false);
 		
-		JTextField textField_10 = new JTextField();
-		textField_10.setEditable(false);
-		textField_10.setBounds(249, 138, 249, 46);
-		panel_1.add(textField_10);
-		textField_10.setColumns(10);
-		textField_10.setVisible(false);
+		JTextField tempMin = new JTextField();
+		tempMin.setVisible(false);
+		tempMin.setEditable(false);
+		tempMin.setBounds(249, 138, 249, 46);
+		panel_1.add(tempMin);
+		tempMin.setColumns(10);
+		tempMin.setVisible(false);
 		
 		JLabel lblTemperaturaMaxima = new JLabel("TEMPERATURA MAXIMA: ");
+		lblTemperaturaMaxima.setVisible(false);
 		lblTemperaturaMaxima.setBounds(0, 184, 249, 46);
 		panel_1.add(lblTemperaturaMaxima);
 		lblTemperaturaMaxima.setVisible(false);
 		
-		textField_7 = new JTextField();
-		textField_7.setEditable(false);
-		textField_7.setBounds(249, 184, 249, 46);
-		panel_1.add(textField_7);
-		textField_7.setColumns(10);
-		textField_7.setVisible(false);
+		temMax = new JTextField();
+		temMax.setVisible(false);
+		temMax.setEditable(false);
+		temMax.setBounds(249, 184, 249, 46);
+		panel_1.add(temMax);
+		temMax.setColumns(10);
+		temMax.setVisible(false);
 		
 		JLabel lblNombre = new JLabel("NOMBRE: ");
+		lblNombre.setVisible(false);
 		lblNombre.setBounds(0, 0, 249, 46);
 		panel_1.add(lblNombre);
 		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setBounds(249, 0, 249, 46);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
+		nombre = new JTextField();
+		nombre.setVisible(false);
+		nombre.setEditable(false);
+		nombre.setBounds(249, 0, 249, 46);
+		panel_1.add(nombre);
+		nombre.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("PRECIO:");
-		lblNewLabel_1.setBounds(0, 46, 249, 46);
-		panel_1.add(lblNewLabel_1);
+		JLabel lblPrecio = new JLabel("PRECIO:");
+		lblPrecio.setVisible(false);
+		lblPrecio.setBounds(0, 46, 249, 46);
+		panel_1.add(lblPrecio);
 		
-		textField_5 = new JTextField();
-		textField_5.setEditable(false);
-		textField_5.setBounds(249, 46, 249, 46);
-		panel_1.add(textField_5);
-		textField_5.setColumns(10);
-		
-
-	
-		JComboBox comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if("Domiciliaria".equals(comboBox.getSelectedItem())) {
-			
-					lblTemperaturaMaxima.setVisible(false);
-					textField_7.setVisible(false);
-					lblNewLabel_10.setVisible(false);
-					textField_10.setVisible(false);
-	
-				}else {
-					lblTemperaturaMaxima.setVisible(true);
-					textField_7.setVisible(true);
-					lblNewLabel_10.setVisible(true);
-					textField_10.setVisible(true);
-				}
-			}
-		});
-		comboBox.setEnabled(false);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Domiciliaria", "Industrial"}));
-		comboBox.setBounds(504, 193, 89, 22);
-		panel.add(comboBox);
-		
-		JRadioButton rdbtnElectricidad = new JRadioButton("Electricidad");
-		rdbtnElectricidad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				comboBox.setEnabled(true);
-				lblNewLabel_9.setVisible(true);
-				textField_4.setVisible(true);
-				lblNewLabel_3.setVisible(false);
-				textField_6.setVisible(false);
-			}
-		});
-		rdbtnElectricidad.setBounds(398, 193, 100, 23);
-		panel.add(rdbtnElectricidad);
-	
-		
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Herramienta");
-		rdbtnNewRadioButton_1.addItemListener(new ItemListener() {
-	
-			public void itemStateChanged(ItemEvent arg0) {
-			
-					lblNewLabel_3.setVisible(true);
-					textField_6.setVisible(true);
-					
-					comboBox.setEnabled(false);
-					
-					lblNewLabel_9.setVisible(false);
-					textField_4.setVisible(false);
-					lblTemperaturaMaxima.setVisible(false);
-					textField_7.setVisible(false);
-					lblNewLabel_10.setVisible(false);
-					textField_10.setVisible(false);
-			
-			}
-		});
-		rdbtnNewRadioButton_1.setBounds(287, 193, 109, 23);
-		panel.add(rdbtnNewRadioButton_1);
+		precio = new JTextField();
+		precio.setVisible(false);
+		precio.setEditable(false);
+		precio.setBounds(249, 46, 249, 46);
+		panel_1.add(precio);
+		precio.setColumns(10);
 		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
@@ -335,26 +283,59 @@ public class BuscarArticulo extends JFrame {
 					if(textField.getText().equals("")) {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
 					}else{
-					TrabajoPracticoN3.Herramientas herramienta;
-					TrabajoPracticoN3.Industrial industrial;
-					TrabajoPracticoN3.Domiciliaria domiciliaria;
+					TrabajoPracticoN3.Articulo articulo;
+					articulo=contro.buscarArticulo(textField.getText());
+					if(articulo instanceof Herramientas) {
+						lblNombre.setVisible(true);
+						nombre.setVisible(true);
+						lblPrecio.setVisible(true);
+						precio.setVisible(true);
+						lblDescripcion.setVisible(true);
+						potenMaxi.setVisible(true);
+						nombre.setText(articulo.getNombre());
+						String cadena = String.valueOf(articulo.getPrecio());
+						precio.setText(cadena);
+						potenMaxi.setText(((Herramientas)articulo).getDescripcion());
+					}
+					if(articulo instanceof Domiciliaria) {
+						lblNombre.setVisible(true);
+						nombre.setVisible(true);
+						lblPrecio.setVisible(true);
+						precio.setVisible(true);
+						lblDescripcion.setVisible(false);
+						potenMaxi.setVisible(false);
+						nombre.setText(articulo.getNombre());
+						String cadena = String.valueOf(articulo.getPrecio());
+						precio.setText(cadena);
+						lblPotenMax.setVisible(true);
+						PotenMax.setVisible(true);
+						String cadena2 = String.valueOf(((Domiciliaria)articulo).getPotenciaMaxima());
+						PotenMax.setText(cadena2);
+					}
+					if(articulo instanceof Industrial) {
+						lblNombre.setVisible(true);
+						nombre.setVisible(true);
+						lblPrecio.setVisible(true);
+						precio.setVisible(true);
+						lblDescripcion.setVisible(false);
+						potenMaxi.setVisible(false);
+						nombre.setText(articulo.getNombre());
+						String cadena = String.valueOf(articulo.getPrecio());
+						precio.setText(cadena);
+						lblPotenMax.setVisible(true);
+						PotenMax.setVisible(true);
+						String cadena2 = String.valueOf(((Industrial)articulo).getPotenciaMaxima());
+						PotenMax.setText(cadena2);
+						lblTempMin.setVisible(true);
+						tempMin.setVisible(true);
+						String cadena3 = String.valueOf(((Industrial)articulo).getTemperatiraMinima());
+						tempMin.setText(cadena3);
+						lblTemperaturaMaxima.setVisible(true);
+						temMax.setVisible(true);
+						String cadena4 = String.valueOf(((Industrial)articulo).getTemperaturaMaxima());
+						temMax.setText(cadena4);
+					}
 					
-					
-					herramienta=contro.buscarHerramienta(textField.getText());
-					industrial=contro.buscarIndustrial(textField.getText());
-					domiciliaria=contro.buscarDomiciliaria(textField.getText());
-					
-					String precio = String.valueOf(domiciliaria.getPrecio());
-					String potencia = String.valueOf(domiciliaria.getPotenciaMaxima());
-					String temmin = String.valueOf(industrial.getTemperatiraMinima());
-					String temmax = String.valueOf(industrial.getTemperaturaMaxima());
-					
-					textField_2.setText(domiciliaria.getNombre());
-					textField_5.setText(precio);
-					textField_4.setText(potencia);
-					textField_6.setText(herramienta.getDescripcion());
-					textField_10.setText(temmin);
-					textField_7.setText(temmax);
 					}
 				}
 		
@@ -362,16 +343,16 @@ public class BuscarArticulo extends JFrame {
 				
 			
 		});
-		btnBuscar.setBounds(504, 269, 89, 33);
+		btnBuscar.setBounds(452, 113, 88, 47);
 		panel.add(btnBuscar);
 		panel_1.setLayout(null);
 		
 		ButtonGroup grupoRadioBotones= new ButtonGroup();
-		grupoRadioBotones.add(rdbtnElectricidad);
-		grupoRadioBotones.add(rdbtnNewRadioButton_1);
 
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(507, 566, 89, 34);
+		panel.add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource()==btnVolver) {
@@ -381,8 +362,6 @@ public class BuscarArticulo extends JFrame {
 				}
 			}
 		});
-		btnVolver.setBounds(409, 242, 89, 34);
-		panel_1.add(btnVolver);
 
 
 	

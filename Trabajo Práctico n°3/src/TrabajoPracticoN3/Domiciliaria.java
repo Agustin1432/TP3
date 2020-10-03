@@ -8,9 +8,6 @@ public class Domiciliaria extends Electricidad {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String descripcion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

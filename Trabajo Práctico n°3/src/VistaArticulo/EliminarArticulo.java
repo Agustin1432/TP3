@@ -312,27 +312,60 @@ public class EliminarArticulo extends JFrame {
 					if(textField.getText().equals("")) {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
 					}else{
-					TrabajoPracticoN3.Herramientas herramienta;
-					TrabajoPracticoN3.Industrial industrial;
-					TrabajoPracticoN3.Domiciliaria domiciliaria;
-					
-					
-					herramienta=contro.buscarHerramienta(textField.getText());
-					industrial=contro.buscarIndustrial(textField.getText());
-					domiciliaria=contro.buscarDomiciliaria(textField.getText());
-					
-					String precio = String.valueOf(domiciliaria.getPrecio());
-					String potencia = String.valueOf(domiciliaria.getPotenciaMaxima());
-					String temmin = String.valueOf(industrial.getTemperatiraMinima());
-					String temmax = String.valueOf(industrial.getTemperaturaMaxima());
-					
-					textField_2.setText(domiciliaria.getNombre());
-					textField_5.setText(precio);
-					textField_4.setText(potencia);
-					textField_6.setText(herramienta.getDescripcion());
-					textField_10.setText(temmin);
-					textField_7.setText(temmax);
-					}
+						TrabajoPracticoN3.Articulo articulo;
+						articulo=contro.buscarArticulo(textField.getText());
+						if(articulo instanceof Herramientas) {
+							lblNombre.setVisible(true);
+							nombre.setVisible(true);
+							lblPrecio.setVisible(true);
+							precio.setVisible(true);
+							lblDescripcion.setVisible(true);
+							potenMaxi.setVisible(true);
+							nombre.setText(articulo.getNombre());
+							String cadena = String.valueOf(articulo.getPrecio());
+							precio.setText(cadena);
+							potenMaxi.setText(((Herramientas)articulo).getDescripcion());
+						}
+						if(articulo instanceof Domiciliaria) {
+							lblNombre.setVisible(true);
+							nombre.setVisible(true);
+							lblPrecio.setVisible(true);
+							precio.setVisible(true);
+							lblDescripcion.setVisible(false);
+							potenMaxi.setVisible(false);
+							nombre.setText(articulo.getNombre());
+							String cadena = String.valueOf(articulo.getPrecio());
+							precio.setText(cadena);
+							lblPotenMax.setVisible(true);
+							PotenMax.setVisible(true);
+							String cadena2 = String.valueOf(((Domiciliaria)articulo).getPotenciaMaxima());
+							PotenMax.setText(cadena2);
+						}
+						if(articulo instanceof Industrial) {
+							lblNombre.setVisible(true);
+							nombre.setVisible(true);
+							lblPrecio.setVisible(true);
+							precio.setVisible(true);
+							lblDescripcion.setVisible(false);
+							potenMaxi.setVisible(false);
+							nombre.setText(articulo.getNombre());
+							String cadena = String.valueOf(articulo.getPrecio());
+							precio.setText(cadena);
+							lblPotenMax.setVisible(true);
+							PotenMax.setVisible(true);
+							String cadena2 = String.valueOf(((Industrial)articulo).getPotenciaMaxima());
+							PotenMax.setText(cadena2);
+							lblTempMin.setVisible(true);
+							tempMin.setVisible(true);
+							String cadena3 = String.valueOf(((Industrial)articulo).getTemperatiraMinima());
+							tempMin.setText(cadena3);
+							lblTemperaturaMaxima.setVisible(true);
+							temMax.setVisible(true);
+							String cadena4 = String.valueOf(((Industrial)articulo).getTemperaturaMaxima());
+							temMax.setText(cadena4);
+						}
+						
+						}
 				}
 				
 			}

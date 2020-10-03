@@ -11,7 +11,7 @@ import javax.swing.ListModel;
 
 import Interfaz.VentanaPrincipal;
 import TrabajoPracticoN3.*;
-import modelo.Industrial;
+
 
 public class Controlador {
 	private LinkedHashSet <TrabajoPracticoN3.Cliente> cliente;
@@ -27,8 +27,6 @@ public class Controlador {
 		nombreArticulos= new DefaultListModel <String>();	
 	}
 
-	
-	
 	//GETTERS AND SETTERS
 	public LinkedHashSet<TrabajoPracticoN3.Cliente> getCliente() {
 		return cliente;
@@ -51,9 +49,6 @@ public class Controlador {
 	public void setArticulo(LinkedHashSet<Articulo> articulo) {
 		this.articulo = articulo;
 	}
-
-
-
 	public DefaultListModel<String> getNombreArticulos() {
 		return nombreArticulos;
 	}
@@ -103,56 +98,48 @@ public class Controlador {
 	
 	//METODOS DE ARTICULO
 	public void crearArticulo (TrabajoPracticoN3.Articulo articulo) {
-			this.articulo.add(articulo);
-		
+		System.out.println(articulo.getNombre());
+		this.articulo.add(articulo);
 	}
+	
 	//BUSCAR ARTICULO
 	public TrabajoPracticoN3.Articulo buscarArticulo(String nombre) {
-		int z=0;
-		TrabajoPracticoN3.Articulo buscar = null ;
+		TrabajoPracticoN3.Articulo buscarh = null ;
+		TrabajoPracticoN3.Articulo next = null ;
 		Iterator <Articulo> iterador = this.articulo.iterator();
-		while(iterador.hasNext() && z==0) {
-			if(nombre.equals(iterador.next().getNombre())) {
-				buscar=new TrabajoPracticoN3.Articulo(iterador.next().getNombre(),iterador.next().getPrecio(),((Herramientas)iterador.next()).getDescripcion(),((Electricidad)iterador.next()).getPotenciaMaxima(),((Industrial)iterador.next()).getTemperaturaMaxima(),((Industrial)iterador.next()).getTemperatiraMinima());
-				z=1;
+		while(iterador.hasNext()) {
+			next=iterador.next();
+			if(nombre.equals(next.getNombre())) {
+				if (next instanceof Herramientas) {
+					buscarh= new Herramientas(next.getNombre(), next.getPrecio(),((Herramientas) next).getDescripcion());
+					System.out.println("holaaaaa");
+				}
+
+				if (next instanceof Electricidad) {
+					buscarh= new Domiciliaria(next.getNombre(), next.getPrecio(),((Domiciliaria) next).getPotenciaMaxima());
+				}
+				
+				if (next instanceof Industrial) {
+					buscarh= new Industrial(next.getNombre(), next.getPrecio(),((Industrial) next).getPotenciaMaxima(),((Industrial) next).getTemperatiraMinima(),((Industrial) next).getTemperaturaMaxima());
+				}
+				
 			}
 		}
-		return buscar;	
+		return buscarh;	
 	}
 	//EDITAR ARTICULO
-	public void editarHerramienta (String nombre,TrabajoPracticoN3.Herramientas herramienta) {
+	public void editarArticulo (String nombre,TrabajoPracticoN3.Articulo articulo) {
 		int z=0;
-		Iterator <Herramientas> iterador = this.herramienta.iterator();
+		Iterator <Articulo> iterador = this.articulo.iterator();
 		while(iterador.hasNext()&& z==0) {
 			if(nombre.equals(iterador.next().getNombre())) {
 				iterador.remove();
-				this.herramienta.add(herramienta);
+				this.articulo.add(articulo);
 				z=1;
 			}
 		}	
 	}
-	public void editarIndustrial (String nombre,TrabajoPracticoN3.Industrial industrial) {
-		int z=0;
-		Iterator <Industrial> iterador = this.industrial.iterator();
-		while(iterador.hasNext()&& z==0) {
-			if(nombre.equals(iterador.next().getNombre())) {
-				iterador.remove();
-				this.industrial.add(industrial);
-				z=1;
-			}
-		}	
-	}
-	public void editarDomiciliaria (String nombre,TrabajoPracticoN3.Domiciliaria domiciliaria) {
-		int z=0;
-		Iterator <Domiciliaria> iterador = this.domiciliaria.iterator();
-		while(iterador.hasNext()&& z==0) {
-			if(nombre.equals(iterador.next().getNombre())) {
-				iterador.remove();
-				this.domiciliaria.add(domiciliaria);
-				z=1;
-			}
-		}	
-	}
+	
 	//ELIMINAR ARTICULO
 	public void eliminarArticulo (String nombre) {
 		int z=0;

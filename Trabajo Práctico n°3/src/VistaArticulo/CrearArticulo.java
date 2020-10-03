@@ -178,7 +178,7 @@ public class CrearArticulo extends JFrame{
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(98, 375, 495, 142);
+		panel_1.setBounds(98, 239, 495, 142);
 		panel.add(panel_1);
 		
 		JPanel panel_2 = new JPanel();
@@ -212,34 +212,34 @@ public class CrearArticulo extends JFrame{
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel_3 = new JLabel("Potencia M\u00E1xima:");
-		lblNewLabel_3.setEnabled(false);
+		lblNewLabel_3.setVisible(false);
 		lblNewLabel_3.setBounds(10, 133, 100, 14);
 		panel_1.add(lblNewLabel_3);
 		
 		textField_2 = new JTextField();
-		textField_2.setEnabled(false);
+		textField_2.setVisible(false);
 		textField_2.setBounds(120, 130, 86, 20);
 		panel_1.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Temperatura M\u00E1xima:");
-		lblNewLabel_4.setEnabled(false);
+		lblNewLabel_4.setVisible(false);
 		lblNewLabel_4.setBounds(10, 158, 110, 14);
 		panel_1.add(lblNewLabel_4);
 		
 		textField_3 = new JTextField();
-		textField_3.setEnabled(false);
+		textField_3.setVisible(false);
 		textField_3.setBounds(120, 155, 86, 20);
 		panel_1.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Temperatura Minima:");
-		lblNewLabel_5.setEnabled(false);
+		lblNewLabel_5.setVisible(false);
 		lblNewLabel_5.setBounds(10, 183, 110, 14);
 		panel_1.add(lblNewLabel_5);
 		
 		textField_4 = new JTextField();
-		textField_4.setEnabled(false);
+		textField_4.setVisible(false);
 		textField_4.setBounds(120, 180, 86, 20);
 		panel_1.add(textField_4);
 		textField_4.setColumns(10);
@@ -259,40 +259,42 @@ public class CrearArticulo extends JFrame{
 		panel.add(btnNewButton_2);
 		
 		JLabel lblNewLabel_6 = new JLabel("Descripcion de la Herramienta:");
-		lblNewLabel_6.setEnabled(false);
+		lblNewLabel_6.setVisible(false);
 		lblNewLabel_6.setBounds(98, 222, 203, 14);
 		panel.add(lblNewLabel_6);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setEnabled(false);
+		textArea.setVisible(false);
 		textArea.setBounds(98, 239, 495, 125);
 		panel.add(textArea);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setVisible(false);
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if("Domiciliaria".equals(comboBox.getSelectedItem())) {
-					lblNewLabel_3.setEnabled(true);
-					textField_2.setEnabled(true);
-					textField_3.setEnabled(false);
-					textField_4.setEnabled(false);
-					lblNewLabel_4.setEnabled(false);
-					lblNewLabel_5.setEnabled(false);
-					lblNewLabel_6.setEnabled(false);
-					textArea.setEnabled(false);
+					panel_1.setVisible(true);
+					lblNewLabel_3.setVisible(true);
+					textField_2.setVisible(true);
+					textField_3.setVisible(false);
+					textField_4.setVisible(false);
+					lblNewLabel_4.setVisible(false);
+					lblNewLabel_5.setVisible(false);
+					lblNewLabel_6.setVisible(false);
+					textArea.setVisible(false);
 				}else {
-					lblNewLabel_3.setEnabled(true);
-					lblNewLabel_4.setEnabled(true);
-					lblNewLabel_5.setEnabled(true);
-					textField_2.setEnabled(true);
-					textField_3.setEnabled(true);
-					textField_4.setEnabled(true);
-					lblNewLabel_6.setEnabled(false);
-					textArea.setEnabled(false);
+					panel_1.setVisible(true);
+					lblNewLabel_3.setVisible(true);
+					lblNewLabel_4.setVisible(true);
+					lblNewLabel_5.setVisible(true);
+					textField_2.setVisible(true);
+					textField_3.setVisible(true);
+					textField_4.setVisible(true);
+					lblNewLabel_6.setVisible(false);
+					textArea.setVisible(false);
 				}
 			}
 		});
-		comboBox.setEnabled(false);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Domiciliaria", "Industrial"}));
 		comboBox.setBounds(380, 193, 89, 22);
 		panel.add(comboBox);
@@ -300,11 +302,11 @@ public class CrearArticulo extends JFrame{
 		JRadioButton rdbtnElectricidad = new JRadioButton("Electricidad");
 		rdbtnElectricidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lblNewLabel_3.setEnabled(true);
-				textField_2.setEnabled(true);
-				comboBox.setEnabled(true);
-				textArea.setEnabled(false);
-				lblNewLabel_6.setEnabled(false);
+				lblNewLabel_3.setVisible(true);
+				textField_2.setVisible(true);
+				comboBox.setVisible(true);
+				textArea.setVisible(false);
+				lblNewLabel_6.setVisible(false);
 			}
 		});
 		rdbtnElectricidad.setBounds(270, 193, 100, 23);
@@ -314,15 +316,16 @@ public class CrearArticulo extends JFrame{
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Herramienta");
 		rdbtnNewRadioButton.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				lblNewLabel_6.setEnabled(true);
-				textArea.setEnabled(true);
-				comboBox.setEnabled(false);
-				lblNewLabel_3.setEnabled(false);
-				lblNewLabel_4.setEnabled(false);
-				lblNewLabel_5.setEnabled(false);
-				textField_2.setEnabled(false);
-				textField_3.setEnabled(false);
-				textField_4.setEnabled(false);
+				panel_1.setVisible(false);
+				lblNewLabel_6.setVisible(true);
+				textArea.setVisible(true);
+				comboBox.setVisible(false);
+				lblNewLabel_3.setVisible(false);
+				lblNewLabel_4.setVisible(false);
+				lblNewLabel_5.setVisible(false);
+				textField_2.setVisible(false);
+				textField_3.setVisible(false);
+				textField_4.setVisible(false);
 			}
 		});
 		
@@ -341,7 +344,8 @@ public class CrearArticulo extends JFrame{
 					if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textArea.getText().equals("")) {
 						double doble = Double.parseDouble(textField_1.getText());
 						Herramientas herra= new Herramientas(textField.getText(),doble, textArea.getText());
-						control.crearherramienta(herra);
+						control.crearArticulo(herra);
+						
 					}else
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la descripcion");
 				}
@@ -351,7 +355,7 @@ public class CrearArticulo extends JFrame{
 							double doble = Double.parseDouble(textField_1.getText());
 							double doble1 = Double.parseDouble(textField_2.getText());
 							Domiciliaria domi = new Domiciliaria(textField.getText(), doble, doble1);
-							control.crearDomiciliaria(domi);
+							//control.crearArticulo(domi);
 						}else
 							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la potencia máxima");
 					}
@@ -362,7 +366,7 @@ public class CrearArticulo extends JFrame{
 							double doble2 = Double.parseDouble(textField_3.getText());
 							double doble3 = Double.parseDouble(textField_4.getText());
 							Industrial indu = new Industrial(textField_1.getText(), doble, doble1, doble2, doble3);
-							control.crearIndustrial(indu);
+							//control.crearArticulo(indu);
 						}else
 							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio, la potencia máxima, temperatura minima y la temperatura máxima");
 					}
