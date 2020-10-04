@@ -152,7 +152,7 @@ public class Controlador {
 		}	
 	}
 	
-	
+	//LISTAR ARTICULOS
 	public  DefaultListModel<Articulo> listarArticulos() {
 		Iterator <Articulo> iterador = this.articulo.iterator();
 		
@@ -163,6 +163,28 @@ public class Controlador {
 		
 		return modelo;
 		
+	}
+	
+	//CREAR FACTURA
+	public void crearFactura (TrabajoPracticoN3.Factura factura) {
+		this.factura.add(factura);
+	}
+	
+	//ULTIMO NUMERO DE FACTURA
+	public long ultimaFactura() {
+		long numero=1;
+		Factura factura2 = null;
+		Iterator <Factura> iterador = this.factura.iterator();
+		while(iterador.hasNext()) {
+			factura2=iterador.next();
+		}
+		
+		if(factura2 == null) {
+			
+		}else {
+			numero=factura2.getNroFactura()+1;
+		}
+		return numero;	
 	}
 
 }

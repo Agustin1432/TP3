@@ -31,6 +31,8 @@ public class CrearFactura extends JFrame{
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private Controlador control;
+	private JTextField textField_8;
+	private Factura factura;
 	
 	public CrearFactura(Controlador control2) {
 		control=control2;
@@ -233,8 +235,8 @@ public class CrearFactura extends JFrame{
 		textField_5.setBounds(77, 142, 144, 20);
 		panel.add(textField_5);
 		
-		JLabel lblNewLabel_6 = new JLabel("Para agregar un articulo precione en AGREGAR:");
-		lblNewLabel_6.setBounds(10, 183, 274, 14);
+		JLabel lblNewLabel_6 = new JLabel("Para agregar un articulo elija un articulo, su cantidad y luego aprete en AGREGAR:");
+		lblNewLabel_6.setBounds(10, 183, 527, 14);
 		panel.add(lblNewLabel_6);
 		
 		
@@ -262,14 +264,17 @@ public class CrearFactura extends JFrame{
 		panel.add(lblNewLabel_8);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		String fecha = sdf.format(new Date());
+		Date fecha1= new Date();
+		String fecha = sdf.format(fecha1);
 		textField_6 = new JTextField(fecha);
 		textField_6.setEditable(false);
 		textField_6.setBounds(572, 47, 102, 20);
 		panel.add(textField_6);
 		textField_6.setColumns(10);
 		
-		textField_7 = new JTextField();
+		long n=control.ultimaFactura();
+		String s=Long.toString(n);
+		textField_7 = new JTextField(s);
 		textField_7.setEditable(false);
 		textField_7.setColumns(10);
 		textField_7.setBounds(572, 73, 102, 20);
@@ -279,14 +284,7 @@ public class CrearFactura extends JFrame{
 		lblNewLabel_8_1.setBounds(480, 76, 89, 14);
 		panel.add(lblNewLabel_8_1);
 		
-		JButton btnNewButton_2 = new JButton("CREAR FACTURA");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		btnNewButton_2.setBounds(10, 588, 136, 23);
-		panel.add(btnNewButton_2);
+		
 		
 		JButton btnNewButton_2_1 = new JButton("VOLVER");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
@@ -309,18 +307,8 @@ public class CrearFactura extends JFrame{
 		lblNewLabel_6_1.setBounds(10, 358, 124, 14);
 		panel.add(lblNewLabel_6_1);
 		
-		JButton btnNewButton_1 = new JButton("AGREGAR");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				textArea.setText(String.valueOf(lista.getSelectedValue())+"\n");
-				
-			}
-		});
-		btnNewButton_1.setBounds(585, 179, 89, 23);
-		panel.add(btnNewButton_1);
-		
 		JScrollPane scrollPane = new JScrollPane(lista);
-		scrollPane.setBounds(10, 208, 664, 122);
+		scrollPane.setBounds(10, 208, 539, 122);
 		panel.add(scrollPane);
 		
 		JButton btnNewButton = new JButton("BUSCAR");
@@ -343,6 +331,51 @@ public class CrearFactura extends JFrame{
 		});
 		btnNewButton.setBounds(236, 11, 89, 23);
 		panel.add(btnNewButton);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(572, 236, 102, 20);
+		panel.add(textField_8);
+		
+		JLabel lblNewLabel_9 = new JLabel("Cantidad:");
+		lblNewLabel_9.setBounds(572, 211, 63, 14);
+		panel.add(lblNewLabel_9);
+		Cliente cliente=new Cliente(textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText());
+		String a=(String) comboBox.getSelectedItem();
+		char caracter = a.charAt(0);
+		JButton btnNewButton_1 = new JButton("AGREGAR");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+
+			public void actionPerformed(ActionEvent arg0) {
+				if(!textField_8.getText().equals("")) {
+				Articulo articulo1 = (Articulo) lista.getSelectedValue();
+				int cantidad = Integer.parseInt(textField_8.getText());
+				Item item=new Item(articulo1, cantidad);
+				factura = new Factura(fecha1,n, caracter, cliente,item);
+				textArea.setText(String.valueOf(lista.getSelectedValue())+" cantidad:"+cantidad+"\n");
+				}
+				else {
+					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar cantidad y el articulo para agregar a factura");
+				}
+			}
+		});
+		btnNewButton_1.setBounds(572, 307, 89, 23);
+		panel.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("CREAR FACTURA");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!textField_8.getText().equals("")&&!textField.getText().equals("")) {
+					control.crearFactura(factura);
+					}
+					else {
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI del cliente,cantidad y el articulo para agregar a factura");
+					}
+			}
+		});
+		btnNewButton_2.setBounds(10, 588, 136, 23);
+		panel.add(btnNewButton_2);
 		
 	}
 }
