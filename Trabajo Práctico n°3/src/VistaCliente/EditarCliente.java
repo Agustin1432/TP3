@@ -240,6 +240,8 @@ public class EditarCliente extends JFrame {
 					textField_3.setEnabled(true);
 					textField_4.setEnabled(true);
 					
+					
+					
 				}
 			}
 		});
@@ -262,6 +264,14 @@ public class EditarCliente extends JFrame {
 					editar= new Cliente(textField.getText(), textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText());
 					control.editarCliente(textField_5.getText(),editar);
 					JOptionPane.showMessageDialog(null,"Ah sido editado con exito");
+					
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					textField_3.setText("");
+					textField_4.setText("");
+					textField_5.setText("");
+					
 				}else {
 					JOptionPane.showMessageDialog(null,"Primero necesita buscar");
 				}

@@ -275,7 +275,7 @@ public class EditarArticulo extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnBuscar) {
 					if(textField.getText().equals("")) {
-						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar NOMBRE para Buscar");
 					}else{
 						TrabajoPracticoN3.Articulo articulo;
 						articulo=contro.buscarArticulo(textField.getText());
@@ -287,6 +287,8 @@ public class EditarArticulo extends JFrame{
 							textField_5.setText(cadena);
 							textField_6.setEditable(true);
 							textField_6.setText(((Herramientas)articulo).getDescripcion());
+							
+							
 						}
 						if(articulo instanceof Domiciliaria) {
 							textField_2.setEditable(true);
@@ -298,6 +300,8 @@ public class EditarArticulo extends JFrame{
 							textField_4.setEditable(true);
 							String cadena1 = String.valueOf(((Domiciliaria)articulo).getPotenciaMaxima());
 							textField_4.setText(cadena1);
+							
+							
 						}
 						if(articulo instanceof Industrial) {
 							textField_2.setEditable(true);
@@ -315,6 +319,9 @@ public class EditarArticulo extends JFrame{
 							textField_7.setEditable(true);
 							String cadena3 = String.valueOf(((Industrial)articulo).getTemperaturaMaxima());
 							textField_7.setText(cadena3);
+							
+							
+							
 						}
 					}
 				}
@@ -336,6 +343,16 @@ public class EditarArticulo extends JFrame{
 					double doble = Double.parseDouble(textField_5.getText());
 					herramienta1= new Herramientas(textField_2.getText(),doble,textField_6.getText());
 					contro.editarArticulo(textField.getText(),herramienta1);;
+					
+					JOptionPane.showMessageDialog(null,"ARTICULO editado");
+					textField_2.setText("");
+					textField.setText("");
+					textField_6.setText("");
+					textField_5.setText("");
+					
+					textField.setText("");
+				
+					
 				}else {
 					if(!textField.getText().equals("")&&!textField_7.getText().equals("")&&!textField_5.getText().equals("")&&!textField_10.getText().equals("")&&!textField_4.getText().equals("")){
 						
@@ -347,6 +364,16 @@ public class EditarArticulo extends JFrame{
 						industrial1= new Industrial(textField_2.getText(),doble,doble3,doble2,doble1);
 						contro.editarArticulo(textField.getText(),industrial1);;
 						
+						JOptionPane.showMessageDialog(null,"ARTICULO editado");
+						textField_2.setText("");
+						textField.setText("");
+						textField_7.setText("");
+						textField_5.setText("");
+						textField_10.setText("");
+						textField_4.setText("");
+						
+						textField.setText("");
+						
 					}else{
 						if(!textField.getText().equals("")&&!textField_4.getText().equals("")&&!textField_5.getText().equals("")){
 							double doble = Double.parseDouble(textField_5.getText());
@@ -354,6 +381,14 @@ public class EditarArticulo extends JFrame{
 							
 							domiciliaria11= new Domiciliaria(textField_2.getText(),doble,doble1);
 							contro.editarArticulo(textField.getText(),domiciliaria11);;
+							
+							JOptionPane.showMessageDialog(null,"ARTICULO editado");
+							textField_2.setText("");
+							textField.setText("");
+							textField_4.setText("");
+							textField_5.setText("");
+							
+							textField.setText("");
 						}
 					}
 				

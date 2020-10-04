@@ -281,7 +281,7 @@ public class BuscarArticulo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnBuscar) {
 					if(textField.getText().equals("")) {
-						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar NOMBRE para Buscar");
 					}else{
 					TrabajoPracticoN3.Articulo articulo;
 					articulo=contro.buscarArticulo(textField.getText());
@@ -296,6 +296,8 @@ public class BuscarArticulo extends JFrame {
 						String cadena = String.valueOf(articulo.getPrecio());
 						precio.setText(cadena);
 						potenMaxi.setText(((Herramientas)articulo).getDescripcion());
+						
+						textField.setText("");
 					}
 					if(articulo instanceof Domiciliaria) {
 						lblNombre.setVisible(true);
@@ -311,6 +313,8 @@ public class BuscarArticulo extends JFrame {
 						PotenMax.setVisible(true);
 						String cadena2 = String.valueOf(((Domiciliaria)articulo).getPotenciaMaxima());
 						PotenMax.setText(cadena2);
+						
+						textField.setText("");
 					}
 					if(articulo instanceof Industrial) {
 						lblNombre.setVisible(true);
@@ -334,6 +338,8 @@ public class BuscarArticulo extends JFrame {
 						temMax.setVisible(true);
 						String cadena4 = String.valueOf(((Industrial)articulo).getTemperaturaMaxima());
 						temMax.setText(cadena4);
+						
+						textField.setText("");
 					}
 					
 					}

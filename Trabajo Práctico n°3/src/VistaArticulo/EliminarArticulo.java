@@ -31,6 +31,10 @@ public class EliminarArticulo extends JFrame {
 	private Controlador contro;
 	private JTextField textField_4;
 	private JTextField textField_7;
+	private Herramientas herramienta1;
+	private Industrial industrial1;
+	private Domiciliaria domiciliaria11;
+	
 	public EliminarArticulo(Controlador control2) {
 		contro=control2;
 		setSize(700,700);
@@ -174,7 +178,7 @@ public class EliminarArticulo extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(98, 113, 495, 47);
+		panel_2.setBounds(98, 113, 299, 47);
 		panel.add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -188,122 +192,84 @@ public class EliminarArticulo extends JFrame {
 		textField.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(98, 330, 498, 276);
+		panel_1.setBounds(98, 185, 498, 276);
 		panel.add(panel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Tipo:");
-		lblNewLabel_2.setBounds(98, 197, 46, 14);
-		panel.add(lblNewLabel_2);
 		
 		
 		JLabel lblNewLabel_3 = new JLabel("DESCRIPCION:");
 		lblNewLabel_3.setBounds(0, 92, 249, 46);
 		panel_1.add(lblNewLabel_3);
-		lblNewLabel_3.setVisible(false);
+	
 		
 		JTextField textField_6 = new JTextField();
+		textField_6.setEditable(false);
 		textField_6.setBounds(249, 92, 249, 46);
 		panel_1.add(textField_6);
 		textField_6.setColumns(10);
-		textField_6.setVisible(false);
+		
 		
 		
 		JLabel lblNewLabel_9 = new JLabel("POTENCIA MAXIMA:");
-		lblNewLabel_9.setBounds(0, 92, 249, 46);
+		lblNewLabel_9.setBounds(0, 140, 249, 46);
 		panel_1.add(lblNewLabel_9);
-		lblNewLabel_9.setVisible(false);
+		
 
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(249, 92, 249, 46);
+		textField_4.setEditable(false);
+		textField_4.setBounds(249, 140, 249, 46);
 		panel_1.add(textField_4);
 		textField_4.setColumns(10);
-		textField_4.setVisible(false);
+		
 		
 		JLabel lblNewLabel_10 = new JLabel("TEMPERATURA MINIMA:");
-		lblNewLabel_10.setBounds(0, 138, 249, 46);
+		lblNewLabel_10.setBounds(0, 185, 249, 46);
 		panel_1.add(lblNewLabel_10);
-		lblNewLabel_10.setVisible(false);
+		
 		
 		JTextField textField_10 = new JTextField();
-		textField_10.setBounds(249, 138, 249, 46);
+		textField_10.setEditable(false);
+		textField_10.setBounds(249, 185, 249, 46);
 		panel_1.add(textField_10);
 		textField_10.setColumns(10);
-		textField_10.setVisible(false);
+		
 		
 		JLabel lblTemperaturaMaxima = new JLabel("TEMPERATURA MAXIMA: ");
-		lblTemperaturaMaxima.setBounds(0, 184, 249, 46);
+		lblTemperaturaMaxima.setBounds(0, 230, 249, 46);
 		panel_1.add(lblTemperaturaMaxima);
-		lblTemperaturaMaxima.setVisible(false);
+		
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(249, 184, 249, 46);
+		textField_7.setEditable(false);
+		textField_7.setBounds(249, 230, 249, 46);
 		panel_1.add(textField_7);
 		textField_7.setColumns(10);
-		textField_7.setVisible(false);
-
-		
-
-	
-		JComboBox comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if("Domiciliaria".equals(comboBox.getSelectedItem())) {
-			
-					lblTemperaturaMaxima.setVisible(false);
-					textField_7.setVisible(false);
-					lblNewLabel_10.setVisible(false);
-					textField_10.setVisible(false);
-	
-				}else {
-					lblTemperaturaMaxima.setVisible(true);
-					textField_7.setVisible(true);
-					lblNewLabel_10.setVisible(true);
-					textField_10.setVisible(true);
-				}
-			}
-		});
-		comboBox.setEnabled(false);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Domiciliaria", "Industrial"}));
-		comboBox.setBounds(504, 193, 89, 22);
-		panel.add(comboBox);
-		
-		JRadioButton rdbtnElectricidad = new JRadioButton("Electricidad");
-		rdbtnElectricidad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				comboBox.setEnabled(true);
-				lblNewLabel_9.setVisible(true);
-				textField_4.setVisible(true);
-				lblNewLabel_3.setVisible(false);
-				textField_6.setVisible(false);
-			}
-		});
-		rdbtnElectricidad.setBounds(398, 193, 100, 23);
-		panel.add(rdbtnElectricidad);
 	
 		
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Herramienta");
-		rdbtnNewRadioButton_1.addItemListener(new ItemListener() {
-	
-			public void itemStateChanged(ItemEvent arg0) {
-			
-					lblNewLabel_3.setVisible(true);
-					textField_6.setVisible(true);
-					
-					comboBox.setEnabled(false);
-					
-					lblNewLabel_9.setVisible(false);
-					textField_4.setVisible(false);
-					lblTemperaturaMaxima.setVisible(false);
-					textField_7.setVisible(false);
-					lblNewLabel_10.setVisible(false);
-					textField_10.setVisible(false);
-			
-			}
-		});
-		rdbtnNewRadioButton_1.setBounds(287, 193, 109, 23);
-		panel.add(rdbtnNewRadioButton_1);
+		
+		ButtonGroup grupoRadioBotones= new ButtonGroup();
+		
+		JLabel lblNombre = new JLabel("NOMBRE: ");
+		
+		lblNombre.setBounds(0, 0, 249, 46);
+		panel_1.add(lblNombre);
+		
+		textField_2 = new JTextField();
+		textField_2.setEditable(false);
+		textField_2.setBounds(249, 0, 249, 46);
+		panel_1.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("PRECIO:");
+		lblNewLabel_1.setBounds(0, 46, 249, 46);
+		panel_1.add(lblNewLabel_1);
+		
+		textField_5 = new JTextField();
+		textField_5.setEditable(false);
+		textField_5.setBounds(249, 46, 249, 46);
+		panel_1.add(textField_5);
+		textField_5.setColumns(10);
 		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
@@ -316,46 +282,96 @@ public class EliminarArticulo extends JFrame {
 						articulo=contro.buscarArticulo(textField.getText());
 						if(articulo instanceof Herramientas) {
 							
+							textField_2.setText(articulo.getNombre());
+							
+							String cadena = String.valueOf(articulo.getPrecio());
+							textField_5.setText(cadena);
+							
+							textField_6.setText(((Herramientas)articulo).getDescripcion());
 						}
 						if(articulo instanceof Domiciliaria) {
 							
+							textField_2.setText(articulo.getNombre());
+							
+							String cadena = String.valueOf(articulo.getPrecio());
+							textField_5.setText(cadena);
+							
+							String cadena1 = String.valueOf(((Domiciliaria)articulo).getPotenciaMaxima());
+							textField_4.setText(cadena1);
 						}
 						if(articulo instanceof Industrial) {
 							
+							textField_2.setText(articulo.getNombre());
+							
+							String cadena = String.valueOf(articulo.getPrecio());
+							textField_5.setText(cadena);
+							
+							
+							String cadena1 = String.valueOf(((Industrial)articulo).getPotenciaMaxima());
+							textField_4.setText(cadena1);
+							
+							String cadena2 = String.valueOf(((Industrial)articulo).getTemperatiraMinima());
+							textField_10.setText(cadena2);
+				
+							String cadena3 = String.valueOf(((Industrial)articulo).getTemperaturaMaxima());
+							textField_7.setText(cadena3);
 						}
-						
-						}
+					}
 				}
 				
 			}
 		});
-		btnBuscar.setBounds(504, 269, 89, 33);
+		btnBuscar.setBounds(503, 113, 93, 47);
 		panel.add(btnBuscar);
 		panel_1.setLayout(null);
 		
-		ButtonGroup grupoRadioBotones= new ButtonGroup();
-		grupoRadioBotones.add(rdbtnElectricidad);
-		grupoRadioBotones.add(rdbtnNewRadioButton_1);
 		
-		JLabel lblNombre = new JLabel("NOMBRE: ");
-		lblNombre.setBounds(0, 0, 249, 46);
-		panel_1.add(lblNombre);
+		JButton btnEditar = new JButton("ELIMINAR");
+		btnEditar.setBounds(98, 570, 89, 35);
+		panel.add(btnEditar);
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!textField.getText().equals("")&&!textField_6.getText().equals("")&&!textField_5.getText().equals("")) {
+					
+					contro.eliminarArticulo(textField.getText());;
+					JOptionPane.showMessageDialog(null,"ARTICULO eliminado");
+					textField_2.setText("");
+					textField.setText("");
+					textField_6.setText("");
+					textField_5.setText("");
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(249, 0, 249, 46);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("PRECIO:");
-		lblNewLabel_1.setBounds(0, 46, 249, 46);
-		panel_1.add(lblNewLabel_1);
-		
-		textField_5 = new JTextField();
-		textField_5.setBounds(249, 46, 249, 46);
-		panel_1.add(textField_5);
-		textField_5.setColumns(10);
+				}else {
+					if(!textField.getText().equals("")&&!textField_7.getText().equals("")&&!textField_5.getText().equals("")&&!textField_10.getText().equals("")&&!textField_4.getText().equals("")){
+						
+						contro.eliminarArticulo(textField.getText());;
+						JOptionPane.showMessageDialog(null,"ARTICULO eliminado");
+						textField_2.setText("");
+						textField.setText("");
+						textField_7.setText("");
+						textField_5.setText("");
+						textField_10.setText("");
+						textField_4.setText("");
+						
+					}else{
+						if(!textField.getText().equals("")&&!textField_4.getText().equals("")&&!textField_5.getText().equals("")){
+				
+							contro.eliminarArticulo(textField.getText());;
+							JOptionPane.showMessageDialog(null,"ARTICULO eliminado");
+							textField_2.setText("");
+							textField.setText("");
+							textField_4.setText("");
+							textField_5.setText("");
+					
+						}
+					}
+				
+				}
+			}
+		});
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(507, 570, 89, 34);
+		panel.add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource()==btnVolver) {
@@ -365,36 +381,11 @@ public class EliminarArticulo extends JFrame {
 				}
 			}
 		});
-		btnVolver.setBounds(409, 242, 89, 34);
-		panel_1.add(btnVolver);
 		
-		JButton btnEliminar = new JButton("ELIMINAR");
-		btnEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!textField.getText().equals("")&&!textField_6.getText().equals("")&&!textField_5.getText().equals("")) {
-					
-					contro.eliminarArticulo(textField.getText());;
-				}else {
-					if(!textField.getText().equals("")&&!textField_7.getText().equals("")&&!textField_5.getText().equals("")&&!textField_10.getText().equals("")&&!textField_4.getText().equals("")){
-						
-						contro.eliminarArticulo(textField.getText());;
-						
-					}else{
-						if(!textField.getText().equals("")&&!textField_4.getText().equals("")&&!textField_5.getText().equals("")){
-					
-							contro.eliminarArticulo(textField.getText());;
-						}
-					}
-				
-				}
-				
-			}
-		});
-		btnEliminar.setBounds(0, 241, 89, 35);
-		panel_1.add(btnEliminar);
+		
 
 
 	
 	}
-		
+	
 }

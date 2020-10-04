@@ -232,6 +232,8 @@ public class EliminarCliente extends JFrame{
 					textField_2.setText(eliminar.getDni());
 					textField_3.setText(eliminar.getDireccion());
 					textField_4.setText(eliminar.getTelefono());
+					
+					
 				}
 			}
 		});
@@ -252,6 +254,15 @@ public class EliminarCliente extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				if(!textField.getText().equals("")&&!textField_1.getText().equals("")&&!textField_2.getText().equals("")&&!textField_3.getText().equals("")&&!textField_4.getText().equals("")) {
 					control.eliminarCliente(textField_2.getText());;
+					
+					JOptionPane.showMessageDialog(null,"CLIENTE eliminado");
+					
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					textField_3.setText("");
+					textField_4.setText("");
+					textField_5.setText("");
 				}else {
 					JOptionPane.showMessageDialog(null,"Primero necesita buscar");
 				}

@@ -251,8 +251,12 @@ public class BuscarCliente extends JFrame{
 					textField_2.setText(cliente.getDni());
 					textField_3.setText(cliente.getDireccion());
 					textField_4.setText(cliente.getTelefono());
+					
+					textField_5.setText("");
 					}
+					
 				}
+				
 			}
 		});
 		btnNewButton.setBounds(430, 135, 89, 23);

@@ -345,6 +345,12 @@ public class CrearArticulo extends JFrame{
 						double doble = Double.parseDouble(textField_1.getText());
 						Herramientas herra= new Herramientas(textField.getText(),doble, textArea.getText());
 						control.crearArticulo(herra);
+						
+						JOptionPane.showMessageDialog(null,"ARTICULO creado");
+						textField.setText("");
+						textField_1.setText("");
+						textArea.setText("");
+						
 					}else
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la descripcion");
 				}
@@ -355,6 +361,13 @@ public class CrearArticulo extends JFrame{
 							double doble1 = Double.parseDouble(textField_2.getText());
 							Domiciliaria domi = new Domiciliaria(textField.getText(), doble, doble1);
 							control.crearArticulo(domi);
+							
+							JOptionPane.showMessageDialog(null,"ARTICULO creado");
+							
+							textField.setText("");
+							textField_1.setText("");
+							textField_2.setText("");
+							
 						}else
 							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio y la potencia máxima");
 					}
@@ -366,6 +379,14 @@ public class CrearArticulo extends JFrame{
 							double doble3 = Double.parseDouble(textField_4.getText());
 							Industrial indu = new Industrial(textField_1.getText(), doble, doble1, doble2, doble3);
 							control.crearArticulo(indu);
+							
+							JOptionPane.showMessageDialog(null,"ARTICULO creado");
+							
+							textField.setText("");
+							textField_1.setText("");
+							textField_2.setText("");
+							textField_3.setText("");
+							textField_4.setText("");
 						}else
 							JOptionPane.showMessageDialog(null,"POR FAVOR ingresar Nombre de la Herramienta, el precio, la potencia máxima, temperatura minima y la temperatura máxima");
 					}
