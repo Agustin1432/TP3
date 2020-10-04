@@ -98,7 +98,6 @@ public class Controlador {
 	
 	//METODOS DE ARTICULO
 	public void crearArticulo (TrabajoPracticoN3.Articulo articulo) {
-		System.out.println(articulo.getNombre());
 		this.articulo.add(articulo);
 	}
 	
@@ -107,10 +106,8 @@ public class Controlador {
 		TrabajoPracticoN3.Articulo buscarh = null ;
 		TrabajoPracticoN3.Articulo next = null ;
 		Iterator <Articulo> iterador = this.articulo.iterator();
-		System.out.println("holaaaaa");
 		while(iterador.hasNext()) {
 			next=iterador.next();
-			System.out.println(next.getNombre());
 			if(nombre.equals(next.getNombre())) {
 				
 				if (next instanceof Herramientas) {
@@ -118,7 +115,7 @@ public class Controlador {
 					
 				}
 
-				if (next instanceof Electricidad) {
+				if (next instanceof Domiciliaria) {
 					buscarh= new Domiciliaria(next.getNombre(), next.getPrecio(),((Domiciliaria) next).getPotenciaMaxima());
 				}
 				

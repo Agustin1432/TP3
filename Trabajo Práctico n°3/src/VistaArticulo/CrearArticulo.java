@@ -377,7 +377,7 @@ public class CrearArticulo extends JFrame{
 							double doble1 = Double.parseDouble(textField_2.getText());
 							double doble2 = Double.parseDouble(textField_3.getText());
 							double doble3 = Double.parseDouble(textField_4.getText());
-							Industrial indu = new Industrial(textField_1.getText(), doble, doble1, doble2, doble3);
+							Industrial indu = new Industrial(textField.getText(), doble, doble1, doble2, doble3);
 							control.crearArticulo(indu);
 							
 							JOptionPane.showMessageDialog(null,"ARTICULO creado");
