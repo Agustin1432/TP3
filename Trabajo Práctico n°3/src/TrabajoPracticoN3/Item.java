@@ -2,16 +2,11 @@ package TrabajoPracticoN3;
 import java.util.*;
 
 public class Item {
-	private LinkedHashSet <Articulo> articulo;
+	private Articulo articulo;
 	private int cantidad;
 	
 	
-	public HashSet<Articulo> getArticulo() {
-		return articulo;
-	}
-	public void setArticulo(HashSet<Articulo> articulo) {
-		this.articulo = (LinkedHashSet<Articulo>) articulo;
-	}
+	
 	public int getCantidad() {
 		return cantidad;
 	}
@@ -24,10 +19,16 @@ public class Item {
 		return "Item [articulo=" + articulo + ", cantidad=" + cantidad + "]";
 	}
 	
-	public Item(HashSet<Articulo> articulo, int cantidad) {
+	public Item(Articulo articulo, int cantidad) {
 		super();
-		this.articulo = (LinkedHashSet<Articulo>) articulo;
+		this.articulo =  articulo;
 		this.cantidad = cantidad;
+	}
+	public Articulo getArticulo() {
+		return articulo;
+	}
+	public void setArticulo(Articulo articulo) {
+		this.articulo = articulo;
 	}
 	
 	
