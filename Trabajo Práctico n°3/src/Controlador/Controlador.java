@@ -186,5 +186,16 @@ public class Controlador {
 		}
 		return numero;	
 	}
-
+	//LISTAR FACTURA
+	public DefaultListModel<Factura> listarFactura() {
+		Iterator <Factura> iterador = this.factura.iterator();
+		
+		DefaultListModel<Factura> modelo = new DefaultListModel<Factura>();
+		while(iterador.hasNext()) {
+			modelo.addElement(iterador.next());
+		}
+		
+		return modelo;
+		
+	}
 }

@@ -12,6 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import Controlador.Controlador;
+import Interfaz.VentanaPrincipal;
 import TrabajoPracticoN3.Articulo;
 import TrabajoPracticoN3.Factura;
 import TrabajoPracticoN3.Item;
@@ -235,7 +236,7 @@ public class VistaPreviaFactura extends JFrame {
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_7 = new JLabel("TIPO DE FACTURA:");
-		lblNewLabel_7.setBounds(467, 14, 102, 14);
+		lblNewLabel_7.setBounds(467, 14, 121, 14);
 		panel.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("FECHA:");
@@ -260,26 +261,28 @@ public class VistaPreviaFactura extends JFrame {
 		lblNewLabel_8_1.setBounds(467, 63, 102, 14);
 		panel.add(lblNewLabel_8_1);
 		
-		textField_7 = new JTextField(factura.getLetra());
+		String cadena = Character.toString(factura.getLetra());
+		textField_7 = new JTextField(cadena);
 		textField_7.setEditable(false);
 		textField_7.setColumns(10);
 		textField_7.setBounds(572, 11, 102, 20);
 		panel.add(textField_7);
 		
 		JLabel lblNewLabel_5 = new JLabel("Articulos:");
-		lblNewLabel_5.setBounds(10, 150, 46, 14);
+		lblNewLabel_5.setBounds(10, 150, 89, 14);
 		panel.add(lblNewLabel_5);
 		
 		
 		Iterator <Item> iterador = factura.getItem().iterator();
-			
+		
+		
 		DefaultListModel<Item> modelo = new DefaultListModel<Item>();
-		float total;
+		double total;
 		total=0;
 		while(iterador.hasNext()) {
-			total=(float) (total+(iterador.next().getCantidad()*iterador.next().getArticulo().getPrecio()));
 			modelo.addElement(iterador.next());
 		}
+		
 			
 		JList<Item> list = new JList<Item>(modelo);
 		list.setBounds(10, 175, 664, 402);
@@ -289,14 +292,23 @@ public class VistaPreviaFactura extends JFrame {
 		lblNewLabel_6.setBounds(10, 588, 46, 14);
 		panel.add(lblNewLabel_6);
 		
-		String cadena = Float.toString(total);
-		textField_8 = new JTextField(cadena);
+		String cadena1 = String.valueOf(total);
+		textField_8 = new JTextField(cadena1);
 		textField_8.setEditable(false);
 		textField_8.setColumns(10);
 		textField_8.setBounds(66, 585, 102, 20);
 		panel.add(textField_8);
 		
 		JButton btnNewButton_2_1 = new JButton("VOLVER");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton_2_1) {
+					VentanaPrincipal ventanaprincipal= new VentanaPrincipal(control);
+					ventanaprincipal.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
 		btnNewButton_2_1.setBounds(585, 582, 89, 23);
 		panel.add(btnNewButton_2_1);
 		

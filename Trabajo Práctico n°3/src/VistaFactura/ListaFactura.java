@@ -19,6 +19,8 @@ import VistaCliente.EliminarCliente;
 import javax.swing.JPanel;
 
 import Interfaz.VentanaPrincipal;
+import TrabajoPracticoN3.Articulo;
+import TrabajoPracticoN3.Factura;
 
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -171,11 +173,9 @@ public class ListaFactura extends JFrame {
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Vista Previa");
-		btnNewButton.setBounds(10, 498, 111, 35);
-		panel.add(btnNewButton);
 		
-		JList list = new JList();
+		
+		JList list = new JList(control.listarFactura());
 		list.setBounds(10, 84, 664, 391);
 		panel.add(list);
 		
@@ -200,5 +200,19 @@ public class ListaFactura extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(10, 84, 664, 391);
 		panel.add(scrollPane);
+		
+		JButton btnNewButton = new JButton("Vista Previa");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Factura factura1 = (Factura) list.getSelectedValue();
+				if(arg0.getSource()==btnNewButton) {
+					VistaPreviaFactura vistaf= new VistaPreviaFactura(control,factura1);
+					vistaf.setVisible(true);
+					setVisible(false);
+				}
+			}
+		});
+		btnNewButton.setBounds(10, 498, 111, 35);
+		panel.add(btnNewButton);
 	}
 }

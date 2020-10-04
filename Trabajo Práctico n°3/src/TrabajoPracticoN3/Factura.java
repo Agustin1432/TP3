@@ -5,7 +5,7 @@ public class Factura {
 	private long nroFactura;
 	private char letra;
 	private Cliente cliente;
-	private LinkedHashSet <Item> item;
+	private LinkedHashSet <Item> item= new LinkedHashSet<Item>();
 	
 	
 	
@@ -62,11 +62,16 @@ public class Factura {
 		this.fecha = fecha;
 		this.nroFactura = nroFactura;
 		this.letra = letra;
-		this.item = new LinkedHashSet<Item>();
 		this.cliente = cliente;
 		this.item.add(item);
 	}
-
+	public Factura(Date fecha, long nroFactura, char letra, Cliente cliente) {
+		super();
+		this.fecha = fecha;
+		this.nroFactura = nroFactura;
+		this.letra = letra;
+		this.cliente = cliente;
+	}
 		
 	
 	

@@ -33,6 +33,8 @@ public class CrearFactura extends JFrame{
 	private Controlador control;
 	private JTextField textField_8;
 	private Factura factura;
+	private Cliente cliente;
+	private char caracter;
 	
 	public CrearFactura(Controlador control2) {
 		control=control2;
@@ -311,26 +313,7 @@ public class CrearFactura extends JFrame{
 		scrollPane.setBounds(10, 208, 539, 122);
 		panel.add(scrollPane);
 		
-		JButton btnNewButton = new JButton("BUSCAR");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource()==btnNewButton) {
-					if(textField.getText().equals("")) {
-						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
-					}else{
-					TrabajoPracticoN3.Cliente cliente = null;
-					cliente=control.buscarCliente(textField.getText());
-					textField_1.setText(cliente.getNombre());
-					textField_2.setText(cliente.getApellido());
-					textField_3.setText(cliente.getDni());
-					textField_4.setText(cliente.getDireccion());
-					textField_5.setText(cliente.getTelefono());
-					}
-				}
-			}
-		});
-		btnNewButton.setBounds(236, 11, 89, 23);
-		panel.add(btnNewButton);
+		
 		
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
@@ -340,20 +323,18 @@ public class CrearFactura extends JFrame{
 		JLabel lblNewLabel_9 = new JLabel("Cantidad:");
 		lblNewLabel_9.setBounds(572, 211, 63, 14);
 		panel.add(lblNewLabel_9);
-		Cliente cliente=new Cliente(textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText());
-		String a=(String) comboBox.getSelectedItem();
-		char caracter = a.charAt(0);
+		
+		
+		
 		JButton btnNewButton_1 = new JButton("AGREGAR");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			
-
 			public void actionPerformed(ActionEvent arg0) {
 				if(!textField_8.getText().equals("")) {
 				Articulo articulo1 = (Articulo) lista.getSelectedValue();
 				int cantidad = Integer.parseInt(textField_8.getText());
 				Item item=new Item(articulo1, cantidad);
-				factura = new Factura(fecha1,n, caracter, cliente,item);
-				textArea.setText(String.valueOf(lista.getSelectedValue())+" cantidad:"+cantidad+"\n");
+				factura.agregarItem(item);
+				textArea.append(String.valueOf(lista.getSelectedValue())+"  cantidad:"+cantidad+"\n");
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"POR FAVOR ingresar cantidad y el articulo para agregar a factura");
@@ -365,9 +346,18 @@ public class CrearFactura extends JFrame{
 		
 		JButton btnNewButton_2 = new JButton("CREAR FACTURA");
 		btnNewButton_2.addActionListener(new ActionListener() {
+			
+
 			public void actionPerformed(ActionEvent arg0) {
 				if(!textField_8.getText().equals("")&&!textField.getText().equals("")) {
+					String a=(String) comboBox.getSelectedItem();
+					caracter = a.charAt(0);
+					factura.setLetra(caracter);
 					control.crearFactura(factura);
+					JOptionPane.showMessageDialog(null,"Factura creada");
+					CrearFactura crearf= new CrearFactura(control);
+					crearf.setVisible(true);
+					setVisible(false);
 					}
 					else {
 						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI del cliente,cantidad y el articulo para agregar a factura");
@@ -376,6 +366,27 @@ public class CrearFactura extends JFrame{
 		});
 		btnNewButton_2.setBounds(10, 588, 136, 23);
 		panel.add(btnNewButton_2);
+		
+		JButton btnNewButton = new JButton("BUSCAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getSource()==btnNewButton) {
+					if(textField.getText().equals("")) {
+						JOptionPane.showMessageDialog(null,"POR FAVOR ingresar DNI para Buscar");
+					}else{
+					cliente=control.buscarCliente(textField.getText());
+					textField_1.setText(cliente.getNombre());
+					textField_2.setText(cliente.getApellido());
+					textField_3.setText(cliente.getDni());
+					textField_4.setText(cliente.getDireccion());
+					textField_5.setText(cliente.getTelefono());
+					factura = new Factura(fecha1,n, caracter, cliente);
+					}
+				}
+			}
+		});
+		btnNewButton.setBounds(236, 11, 89, 23);
+		panel.add(btnNewButton);
 		
 	}
 }
